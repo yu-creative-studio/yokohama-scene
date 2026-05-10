@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOKOHAMA SCENE | 今の気分に、ぴったりな横浜を。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy-mid: #162640;
+    --gold: #c9a96e;
+    --gold-light: #e8d5b0;
+    --rose: #c4856a;
+    --rose-light: #e8c4b4;
+    --cream: #faf7f3;
+    --text: #2a2a2a;
+    --text-light: #6b6b6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,27,46,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 3px;
+    line-height: 1.6;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(13,27,46,0.85) 40%, rgba(13,27,46,0.3) 100%),
+      url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1800&q=80') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    padding: 0 80px;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 2;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--rose);
+    color: #fff;
+    padding: 18px 40px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .hero-cta:hover {
+    background: #b37560;
+    transform: translateY(-2px);
+  }
+
+  .hero-cta::after {
+    content: '→';
+    font-size: 16px;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 100px 0; }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 64px;
+    letter-spacing: 1px;
+  }
+
+  /* QUIZ SECTION */
+  .quiz-section {
+    background: #fff;
+    padding: 80px 0 100px;
+  }
+
+  .quiz-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .quiz-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    justify-content: center;
+  }
+
+  .progress-step {
+    width: 32px;
+    height: 2px;
+    background: #e0e0e0;
+    transition: background 0.4s;
+  }
+
+  .progress-step.active { background: var(--rose); }
+
+  .quiz-card {
+    display: none;
+    animation: fadeIn 0.4s forwards;
+  }
+
+  .quiz-card.active { display: block; }
+
+  .quiz-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--rose);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  .quiz-question {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .quiz-option {
+    border: 1px solid #e0d8d0;
+    padding: 24px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fff;
+  }
+
+  .quiz-option:hover {
+    border-color: var(--rose);
+    background: #fdf6f3;
+  }
+
+  .quiz-option.selected {
+    border-color: var(--rose);
+    background: var(--rose);
+    color: #fff;
+  }
+
+  .quiz-option-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .quiz-option-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--rose);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.25s;
+  }
+  .quiz-option.selected .quiz-option-icon svg { stroke: #fff; }
+
+  .quiz-option-label {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .btn-back {
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: var(--text-light);
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 12px 0;
+  }
+
+  .btn-next {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 16px 48px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .btn-next:hover { background: var(--navy-mid); }
+  .btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ── ANALYZING OVERLAY ── */
+  .analyzing-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: radial-gradient(ellipse at 50% 60%, #1a2d4a 0%, #080f1c 70%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .analyzing-overlay.active { display: flex; }
+
+  /* 星 */
+  .analyzing-stars {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 35% 65%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.3) 0%, transparent 100%);
+  }
+
+  /* Analyzing... スクリプト体 */
+  .analyzing-script {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  /* SVGリング */
+  .analyzing-ring-wrap {
+    position: relative;
+    width: clamp(200px, 50vw, 280px);
+    height: clamp(200px, 50vw, 280px);
+    margin-bottom: 32px;
+  }
+  .analyzing-svg {
+    width: 100%; height: 100%;
+    transform: rotate(-90deg);
+  }
+  .ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 3;
+  }
+  .ring-progress {
+    fill: none;
+    stroke: url(#ringGrad);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 553;
+    stroke-dashoffset: 553;
+    transition: stroke-dashoffset 0.1s linear;
+  }
+  .analyzing-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .analyzing-sub {
+    font-size: clamp(13px, 3vw, 15px);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+  .analyzing-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 7vw, 40px);
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  /* アイテムリスト */
+  .analyzing-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .analyzing-item {
+    font-size: clamp(11px, 3vw, 13px);
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .analyzing-item.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 28px; }
+    .hero-title { font-size: 40px; }
+
+    .quiz-wrapper { padding: 0 16px; }
+    .quiz-options { grid-template-columns: repeat(2, 1fr) !important; }
+    .quiz-question { font-size: 18px; }
+
+    .plan-body { grid-template-columns: 1fr; }
+    .result-header h2 { font-size: 26px; }
+    .result-meta { flex-direction: column; gap: 8px; align-items: center; }
+
+    .timeline { padding-left: 60px; }
+    .timeline-time { left: -60px; font-size: 11px; }
+
+    .budget-items { grid-template-columns: 1fr 1fr; }
+
+    .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .about-features { grid-template-columns: 1fr 1fr; }
+
+    footer { padding: 40px 24px 28px; flex-direction: column; align-items: flex-start; gap: 16px; }
+
+    .sub-plans-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 34px; }
+    .quiz-options { grid-template-columns: 1fr 1fr !important; }
+    .result-tags { gap: 6px; }
+    .budget-items { grid-template-columns: 1fr; }
+  }
+
+  /* RESULT */
+  .result-section {
+    display: none;
+    padding: 80px 0 120px;
+    background: var(--cream);
+  }
+
+  .result-section.active { display: block; }
+
+  .result-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .result-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .result-match {
+    display: inline-block;
+    background: var(--rose);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    margin-bottom: 20px;
+  }
+
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .result-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .result-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  .result-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* PLAN BODY */
+  .plan-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 768px) {
+    .plan-body { grid-template-columns: 1fr; }
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 32px; }
+  }
+
+  .plan-hero-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--navy) 0%, #2a4a6b 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plan-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .plan-description {
+    padding: 8px 0;
+  }
+
+  .plan-concept {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #e8e0d8;
+  }
+
+  .plan-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .plan-points li {
+    font-size: 13px;
+    color: var(--text-light);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.8;
+  }
+
+  .plan-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    margin-bottom: 64px;
+  }
+
+  .timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--navy);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e8e0d8;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 80px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -52px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--rose);
+  }
+
+  .timeline-time {
+    position: absolute;
+    left: -80px;
+    top: 2px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--rose);
+    letter-spacing: 1px;
+  }
+
+  .timeline-content h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--navy);
+  }
+
+  .timeline-content p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .timeline-content .role {
+    font-size: 11px;
+    color: var(--rose);
+    letter-spacing: 2px;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .timeline-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #e8e0d8;
+  }
+
+  /* BUDGET */
+  .budget-section {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px;
+    margin-bottom: 48px;
+  }
+
+  .budget-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .budget-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .budget-item {
+    border-left: 1px solid rgba(201,169,110,0.3);
+    padding-left: 16px;
+  }
+
+  .budget-item-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .budget-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+  }
+
+  .budget-total {
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .budget-total-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+  }
+
+  .budget-total-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--gold);
+  }
+
+  /* CTA */
+  .cta-block {
+    text-align: center;
+    padding: 48px 0 0;
+  }
+
+  .cta-reserve {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--rose);
+    color: #fff;
+    padding: 20px 64px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s;
+  }
+
+  .cta-reserve:hover {
+    background: #b37560;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(196,133,106,0.3);
+  }
+
+  .cta-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--navy);
+    padding: 100px 0;
+  }
+
+  .about-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .plan-body { grid-template-columns: 1fr; }
+  }
+
+  .about-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 28px;
+  }
+
+  .about-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 2.2;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .about-feature {
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 24px;
+  }
+
+  .about-feature-icon {
+    margin-bottom: 12px;
+    display: block;
+    width: 28px; height: 28px;
+  }
+  .about-feature-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--gold); fill: none;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .about-feature-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .about-feature-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080f1a;
+    padding: 60px 48px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+
+  .footer-sns {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-sns a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+
+  .footer-sns a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* サブプランカード */
+  .sub-plans-wrap { margin-top: 32px; }
+  .sub-plans-label { font-size: 12px; color: var(--text-light); letter-spacing: 2px; margin-bottom: 16px; }
+  .sub-plans-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sub-plan-card {
+    border: 1px solid var(--border); padding: 16px; cursor: pointer;
+    transition: border-color .25s, background .25s; background: #fff;
+  }
+  .sub-plan-card:hover { border-color: var(--rose); background: #fdf7f4; }
+  .sub-plan-rank { font-size: 11px; color: var(--rose); letter-spacing: 2px; margin-bottom: 6px; }
+  .sub-plan-title { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+  .sub-plan-tags { font-size: 11px; color: var(--text-light); }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c4856a"/>
+      <stop offset="100%" stop-color="#c9a96e"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">YS</div>
+    <div class="logo-text">YOKOHAMA<br>SCENE</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#quiz">診断する</a></li>
+    <li><a href="#">プラン一覧</a></li>
+    <li><a href="#">特集</a></li>
+    <li><a href="#">お気に入り</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">YOKOHAMA DATE PLANNING</p>
+    <h1 class="hero-title">今の気分に、<br>ぴったりな<br>横浜を。</h1>
+    <p class="hero-sub">デートも、女子会も、記念日も。<br>あなたにぴったりのプランをAIがご提案。</p>
+    <button class="hero-cta" onclick="scrollToQuiz()">プランを診断する</button>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="section-label">AI DIAGNOSIS</div>
+    <h2 class="section-title" style="font-size:20px; font-weight:300; letter-spacing:2px;">3分で完了！かんたん診断</h2>
+
+    <div class="quiz-progress" id="progressBar">
+      <div class="progress-step active" id="ps1"></div>
+      <div class="progress-step" id="ps2"></div>
+      <div class="progress-step" id="ps3"></div>
+      <div class="progress-step" id="ps4"></div>
+      <div class="progress-step" id="ps5"></div>
+      <div class="progress-step" id="ps6"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="quiz-card active" id="q1">
+      <p class="quiz-num">Q1 / 6</p>
+      <h3 class="quiz-question">今日はどんな目的でおでかけしますか？</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this,'purpose','date')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span class="quiz-option-label">デート</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'purpose','girls')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M19 11a4 4 0 0 1 0 8"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+          <span class="quiz-option-label">女子会</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'purpose','anniversary')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <span class="quiz-option-label">記念日・誕生日</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'purpose','surprise')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+          <span class="quiz-option-label">サプライズ</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'purpose','friends')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="quiz-option-label">友達と遊ぶ</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <span></span>
+        <button class="btn-next" id="next1" disabled onclick="goTo(2)">次へ</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-card" id="q2">
+      <p class="quiz-num">Q2 / 6</p>
+      <h3 class="quiz-question">どんな雰囲気の時間にしたいですか？</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this,'mood','romantic')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span class="quiz-option-label">ロマンチック</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'mood','calm')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+          <span class="quiz-option-label">落ち着いた</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'mood','lively')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+          <span class="quiz-option-label">ワイワイ楽しく</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'mood','mature')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M8 6l4-4 4 4"/><path d="M12 2v13"/><path d="M20 22H4"/><path d="M17 22v-5"/><path d="M7 22v-5"/><path d="M12 17v5"/></svg></span>
+          <span class="quiz-option-label">大人っぽく</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'mood','special')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+          <span class="quiz-option-label">特別感のある</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goTo(1)">← もどる</button>
+        <button class="btn-next" id="next2" disabled onclick="goTo(3)">次へ</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-card" id="q3">
+      <p class="quiz-num">Q3 / 6</p>
+      <h3 class="quiz-question">重視するポイントは？（複数可）</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="toggleOption(this,'priority','nightview')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span class="quiz-option-label">夜景スポット</span>
+        </div>
+        <div class="quiz-option" onclick="toggleOption(this,'priority','photo')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+          <span class="quiz-option-label">写真映え</span>
+        </div>
+        <div class="quiz-option" onclick="toggleOption(this,'priority','food')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2"/><path d="M18 2v3h3v3a3 3 0 0 1-3 3h0v9"/></svg></span>
+          <span class="quiz-option-label">食事・グルメ</span>
+        </div>
+        <div class="quiz-option" onclick="toggleOption(this,'priority','walk')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7l-2 5h4l-2 5"/><path d="M9 12l-2 6"/><path d="M15 12l2 6"/></svg></span>
+          <span class="quiz-option-label">散歩・散策</span>
+        </div>
+        <div class="quiz-option" onclick="toggleOption(this,'priority','surprise')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+          <span class="quiz-option-label">サプライズ演出</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goTo(2)">← もどる</button>
+        <button class="btn-next" id="next3" onclick="goTo(4)">次へ</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-card" id="q4">
+      <p class="quiz-num">Q4 / 6</p>
+      <h3 class="quiz-question">おひとりあたりの予算は？</h3>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(this,'budget','under5k')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="quiz-option-label">〜5,000円</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'budget','5to10k')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="quiz-option-label">5,000〜10,000円</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'budget','10to20k')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span class="quiz-option-label">10,000〜20,000円</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'budget','over20k')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          <span class="quiz-option-label">20,000円以上</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goTo(3)">← もどる</button>
+        <button class="btn-next" id="next4" disabled onclick="goTo(5)">次へ</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-card" id="q5">
+      <p class="quiz-num">Q5 / 6</p>
+      <h3 class="quiz-question">今回のお出かけで近いものを選んでください</h3>
+      <div class="quiz-options" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="quiz-option" onclick="selectOption(this,'relation','first_date')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span class="quiz-option-label">初デート</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','before_dating')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
+          <span class="quiz-option-label">付き合う前</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','lover')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="quiz-option-label">恋人</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','long_couple')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+          <span class="quiz-option-label">長く付き合っている</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','reunion')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="quiz-option-label">久しぶりの集まり</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','oshi')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+          <span class="quiz-option-label">推し活</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','birthday')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <span class="quiz-option-label">誕生日祝い</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'relation','after_work')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <span class="quiz-option-label">仕事終わり</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goTo(4)">← もどる</button>
+        <button class="btn-next" id="next5" disabled onclick="goTo(6)">次へ</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz-card" id="q6">
+      <p class="quiz-num">Q6 / 6</p>
+      <h3 class="quiz-question">何時ごろからお出かけしますか？</h3>
+      <div class="quiz-options" style="grid-template-columns: repeat(1, 1fr);">
+        <div class="quiz-option" onclick="selectOption(this,'timeband','lunch')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <span class="quiz-option-label">お昼からゆっくり（12:00〜）</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'timeband','evening')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/></svg></span>
+          <span class="quiz-option-label">夕方から（16:00〜）</span>
+        </div>
+        <div class="quiz-option" onclick="selectOption(this,'timeband','night')">
+          <span class="quiz-option-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span class="quiz-option-label">夜メイン（18:00〜）</span>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="goTo(5)">← もどる</button>
+        <button class="btn-next" id="next6" disabled onclick="startAnalyzing()">診断結果を見る</button>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ANALYZING OVERLAY（フルスクリーン） -->
+<div class="analyzing-overlay" id="analyzing">
+  <div class="analyzing-stars"></div>
+  <p class="analyzing-script">Analyzing...</p>
+  <div class="analyzing-ring-wrap">
+    <svg class="analyzing-svg" viewBox="0 0 200 200">
+      <circle class="ring-bg" cx="100" cy="100" r="88"/>
+      <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="88"/>
+    </svg>
+    <div class="analyzing-center">
+      <p class="analyzing-sub">あなたにぴったりの<br>プランを考えています</p>
+      <p class="analyzing-pct" id="analyzePct">0%</p>
+    </div>
+  </div>
+  <ul class="analyzing-items">
+    <li class="analyzing-item" id="ai1">・横浜のおすすめスポットを分析中...</li>
+    <li class="analyzing-item" id="ai2">・夜景との相性をチェック中...</li>
+    <li class="analyzing-item" id="ai3">・雰囲気に合うプランを選定しています...</li>
+    <li class="analyzing-item" id="ai4">・あなたにぴったりのYOKOHAMA SCENEを作成中...</li>
+  </ul>
+</div>
+
+<!-- RESULT SECTION -->
+<section class="result-section" id="result">
+  <div class="result-wrapper">
+
+    <div class="result-header reveal">
+      <div class="result-match">おすすめ度 99%</div>
+      <h2 class="result-title">王道みなとみらい<br>ロマンチックデートプラン</h2>
+      <div class="result-tags">
+        <span class="tag">デート</span>
+        <span class="tag">夜景</span>
+        <span class="tag">ロマンチック</span>
+        <span class="tag">王道</span>
+      </div>
+      <div class="result-meta">
+        <span>所要時間：約8時間</span>
+        <span>予算：¥10,000〜¥20,000</span>
+      </div>
+    </div>
+
+    <div class="plan-body reveal">
+      <div>
+        <div class="plan-hero-img">
+          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80" alt="みなとみらい夜景">
+        </div>
+      </div>
+      <div class="plan-description">
+        <p class="plan-concept">
+          中華街の賑やかさから始まり、<br>
+          海沿いの落ち着き、夕方の赤レンガ、<br>
+          夜のみなとみらい夜景へ。<br>
+          "横浜らしさ"を自然に楽しめる、<br>
+          王道ロマンチックデート。
+        </p>
+        <ul class="plan-points">
+          <li>横浜らしいスポットを全部楽しめる</li>
+          <li>昼→夕方→夜の景色変化が綺麗</li>
+          <li>移動ストレスが少ない動線設計</li>
+          <li>自然に会話が生まれるシーン構成</li>
+          <li>王道だから失敗しにくい</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline-section reveal">
+      <p class="timeline-title">TIME SCHEDULE</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:00</div>
+          <div class="timeline-content">
+            <h4>中華街で待ち合わせ</h4>
+            <p>横浜に来た瞬間から特別感を感じられる王道スタート。異国情緒あふれる街並みが、ふたりの気分を自然に高めてくれます。</p>
+            <p class="role">最初の緊張をほぐして、自然に距離を縮める</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:15</div>
+          <div class="timeline-content">
+            <h4>中華街 食べ歩き</h4>
+            <p>小籠包、ごま団子、台湾スイーツ、いちご飴などをシェアしながら自然に会話。食べながら歩くだけで、不思議と打ち解けていきます。</p>
+            <p class="role">シェアする体験が距離を縮める</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:30</div>
+          <div class="timeline-content">
+            <h4>山下公園 散歩</h4>
+            <p>中華街の賑やかさから、海沿いの落ち着いた空気へ。海を見ながらゆっくり歩ける、横浜らしい定番スポット。</p>
+            <p class="role">"ちゃんとデート感"を作る</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-content">
+            <h4>カフェ休憩</h4>
+            <p>海が見えるカフェや韓国っぽい無機質カフェで休憩。歩いた後だから、自然にゆっくり話せるタイミング。</p>
+            <p class="role">会話を深める</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">17:00</div>
+          <div class="timeline-content">
+            <h4>赤レンガ倉庫</h4>
+            <p>夕方〜夜へ切り替わる、横浜デートで一番雰囲気が良い時間帯。写真も撮りやすく、自然にテンションが上がるスポット。</p>
+            <p class="role">特別感を作る</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:00</div>
+          <div class="timeline-content">
+            <h4>みなとみらい夜景散歩</h4>
+            <p>汽車道・コスモワールド周辺・大さん橋などを歩きながら、ロマンチックな空気を楽しむ。横浜夜景の王道ルート。</p>
+            <p class="role">空気感を変える</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-content">
+            <h4>ディナー</h4>
+            <p>夜景が見えるレストランで締め。高級すぎず、少し背伸びしたくらいの雰囲気が20代にちょうど良い。デートの余韻を作る最後のシーン。</p>
+            <p class="role">デートの余韻を作る</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="budget-section reveal" id="budgetSection">
+      <p class="budget-title">BUDGET GUIDE　予算の目安（1人あたり）</p>
+      <div class="budget-items" id="budgetItems"></div>
+      <div class="budget-total">
+        <span class="budget-total-label">合計（1人あたり）</span>
+        <span class="budget-total-price" id="budgetTotal"></span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block reveal">
+      <a href="https://www.hotpepper.jp/SA11/yokohama/?utm_source=yokohama_scene&utm_medium=plan_detail&utm_campaign=result&utm_content=reserve_btn" target="_blank" class="cta-reserve">
+        このプランで予約する →
+      </a>
+      <p class="cta-note">食べログ・ホットペッパーグルメで予約できます</p>
+      <div class="sub-plans-wrap">
+        <p class="sub-plans-label">他のおすすめプランも見る</p>
+        <div class="sub-plans-grid" id="sub-plans"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-wrapper">
+    <div>
+      <p class="about-label">ABOUT YOKOHAMA SCENE</p>
+      <h2 class="about-title">実際に行って<br>厳選した<br>プランだけを。</h2>
+      <p class="about-text">
+        YOKOHAMA SCENEは、編集部が実際に横浜を巡り、本当におすすめできるスポットだけを厳選したデートプランメディアです。シーンや気分に合わせた提案で、移動もスムーズ、失敗しない横浜をお届けします。
+      </p>
+    </div>
+    <div class="about-features">
+      <div class="about-feature">
+        <span class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <p class="about-feature-title">実際に行って厳選</p>
+        <p class="about-feature-text">編集部が体験し、本当におすすめできるスポットだけを紹介。</p>
+      </div>
+      <div class="about-feature">
+        <span class="about-feature-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+        <p class="about-feature-title">移動もスムーズ</p>
+        <p class="about-feature-text">効率よく回れるルートで、ストレスフリーでおでかけを。</p>
+      </div>
+      <div class="about-feature">
+        <span class="about-feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+        <p class="about-feature-title">シーンに合わせて提案</p>
+        <p class="about-feature-text">目的や気分に合わせて、最適なプランをご提案します。</p>
+      </div>
+      <div class="about-feature">
+        <span class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+        <p class="about-feature-title">最新情報をお届け</p>
+        <p class="about-feature-text">新しいお店やイベント情報を随時更新しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">YOKOHAMA SCENE</div>
+  </div>
+  <div class="footer-sns">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+  </div>
+  <p class="footer-copy">© 2025 YOKOHAMA SCENE. All rights reserved.</p>
+</footer>
+
+<script>
+// ── 回答状態 ──
+const answers = { purpose: null, mood: null, priority: [], budget: null, relation: null, timeband: null };
+
+// ── 15プランデータ ──
+const PLANS = [
+  {
+    id: 1, title: '王道みなとみらいデート',
+    persona: '20代カップル｜横浜デート初心者',
+    budget: '2人で ¥12,000〜¥18,000',
+    duration: '約8時間',
+    tags: ['デート','ロマンチック','夜景','散歩'],
+    score_keys: { purpose:['date'], mood:['romantic'], priority:['nightview','walk'], budget:['5to10k'], relation:['lover'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'食べ歩き', price:'¥1,500〜¥2,500' },
+      { label:'カフェ', price:'¥800〜¥1,500' },
+      { label:'ディナー', price:'¥6,000〜¥12,000' },
+      { label:'その他', price:'¥500〜¥2,000' }
+    ],
+    budget_total: '¥9,000〜¥18,000',
+    schedule: [
+      { time:'13:00', place:'中華街待ち合わせ', desc:'横浜に来た瞬間から特別感を感じられる王道スタート。' },
+      { time:'13:15', place:'中華街 食べ歩き', desc:'小籠包・ごま団子・いちご飴などをシェアしながら自然に会話。' },
+      { time:'14:30', place:'山下公園', desc:'海沿いの落ち着いた空気へ。ゆっくり歩ける定番スポット。' },
+      { time:'15:30', place:'海見えカフェ', desc:'歩いた後だから自然にゆっくり話せるタイミング。' },
+      { time:'17:00', place:'赤レンガ倉庫', desc:'夕方〜夜へ切り替わる、一番雰囲気が良い時間帯。' },
+      { time:'18:00', place:'みなとみらい夜景', desc:'汽車道・コスモワールド周辺・大さん橋を歩く。' },
+      { time:'19:00', place:'夜景ディナー', desc:'少し背伸びした雰囲気が20代にちょうど良い。' }
+    ]
+  },
+  {
+    id: 2, title: '初デート安心プラン',
+    persona: '付き合う前の男女',
+    budget: '2人で ¥8,000〜¥14,000',
+    duration: '約7時間',
+    tags: ['デート','落ち着き','グルメ','初デート'],
+    score_keys: { purpose:['date'], mood:['calm'], priority:['food','walk'], budget:['under5k'], relation:['first_date','before_dating'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'食べ歩き', price:'¥1,000〜¥2,000' },
+      { label:'カフェ', price:'¥700〜¥1,200' },
+      { label:'ディナー', price:'¥3,000〜¥5,000' },
+      { label:'その他', price:'¥300〜¥800' }
+    ],
+    budget_total: '¥5,000〜¥9,000',
+    schedule: [
+      { time:'13:00', place:'中華街', desc:'会話のきっかけが生まれやすい賑やかなスタート。' },
+      { time:'13:30', place:'食べ歩き', desc:'一緒に食べる体験が自然と距離を縮める。' },
+      { time:'14:30', place:'雑貨屋巡り', desc:'お互いの好みが分かるショッピングタイム。' },
+      { time:'15:30', place:'カフェ', desc:'座って落ち着いて話せる大切な時間。' },
+      { time:'17:00', place:'赤レンガ散歩', desc:'夕方の雰囲気が自然な距離感を演出。' },
+      { time:'18:30', place:'夜景（軽め）', desc:'プレッシャーなく楽しめる夜景スポット。' },
+      { time:'19:00', place:'カジュアルディナー', desc:'高すぎず緊張しない雰囲気で締め。' }
+    ]
+  },
+  {
+    id: 3, title: '夜景ロマンチックデート',
+    persona: '夜景重視カップル',
+    budget: '2人で ¥15,000〜¥22,000',
+    duration: '約6時間',
+    tags: ['デート','ロマンチック','夜景','写真映え'],
+    score_keys: { purpose:['date'], mood:['romantic'], priority:['nightview','photo'], budget:['10to20k'], relation:['lover'], timeband:['evening'] },
+    budget_detail: [
+      { label:'カフェ', price:'¥800〜¥1,500' },
+      { label:'ディナー', price:'¥8,000〜¥15,000' },
+      { label:'その他', price:'¥500〜¥1,000' }
+    ],
+    budget_total: '¥9,300〜¥17,500',
+    schedule: [
+      { time:'15:00', place:'海見えカフェ', desc:'夕方に向けて気分を高めるカフェタイム。' },
+      { time:'16:30', place:'赤レンガ（夕焼け）', desc:'オレンジ色の空と赤レンガが最高のシャッターチャンス。' },
+      { time:'17:30', place:'汽車道', desc:'みなとみらいの夜景が見えてくるロマンチックな遊歩道。' },
+      { time:'18:00', place:'コスモワールド', desc:'観覧車のイルミネーションが夜の雰囲気を盛り上げる。' },
+      { time:'19:00', place:'大さん橋', desc:'横浜夜景の絶景ポイント。写真映え抜群。' },
+      { time:'20:00', place:'夜景ディナー', desc:'絶景を前に特別な食事で夜を締めくくる。' }
+    ]
+  },
+  {
+    id: 4, title: '大人っぽバー巡りデート',
+    persona: '20代後半〜30代カップル',
+    budget: '2人で ¥18,000〜¥30,000',
+    duration: '約6時間',
+    tags: ['デート','大人っぽい','バー','夜景'],
+    score_keys: { purpose:['date'], mood:['mature'], priority:['food','nightview'], budget:['over20k'], relation:['long_couple'], timeband:['night'] },
+    budget_detail: [
+      { label:'ホテルラウンジ', price:'¥2,000〜¥4,000' },
+      { label:'ディナー', price:'¥8,000〜¥15,000' },
+      { label:'バー1軒目', price:'¥2,000〜¥4,000' },
+      { label:'隠れ家バー', price:'¥2,000〜¥4,000' }
+    ],
+    budget_total: '¥14,000〜¥27,000',
+    schedule: [
+      { time:'17:00', place:'ホテルラウンジ', desc:'大人の時間のスタートはホテルのラウンジから。' },
+      { time:'18:30', place:'赤レンガ夜散歩', desc:'ライトアップされた赤レンガをゆっくり歩く。' },
+      { time:'19:30', place:'ディナー', desc:'上質な食事でふたりの会話が深まる時間。' },
+      { time:'21:00', place:'バー1軒目', desc:'みなとみらいの夜景バーで1杯目。' },
+      { time:'22:30', place:'隠れ家バー', desc:'地元の人しか知らない隠れ家でシメ。' }
+    ]
+  },
+  {
+    id: 5, title: 'コスパ最強学生デート',
+    persona: '学生カップル',
+    budget: '2人で ¥5,000〜¥9,000',
+    duration: '約8時間',
+    tags: ['デート','コスパ','ワイワイ','中華街'],
+    score_keys: { purpose:['date'], mood:['lively'], priority:['food','walk'], budget:['under5k'], relation:['lover'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'食べ歩き', price:'¥1,000〜¥1,500' },
+      { label:'カフェ', price:'¥500〜¥800' },
+      { label:'居酒屋', price:'¥2,000〜¥3,000' },
+      { label:'その他', price:'¥0〜¥500' }
+    ],
+    budget_total: '¥3,500〜¥5,800',
+    schedule: [
+      { time:'12:00', place:'中華街', desc:'リーズナブルに楽しめる食べ歩きからスタート。' },
+      { time:'13:30', place:'山下公園', desc:'無料で楽しめる横浜随一の海沿い公園。' },
+      { time:'15:00', place:'赤レンガ', desc:'入場無料でふらっと立ち寄れる観光スポット。' },
+      { time:'16:30', place:'コスモワールド', desc:'乗り物は乗らなくても雰囲気だけで充分楽しい。' },
+      { time:'18:00', place:'夜景散歩', desc:'お金ゼロで最高の夜景が楽しめる。' },
+      { time:'19:00', place:'コスパ居酒屋', desc:'学生に優しい価格で締めの一杯。' }
+    ]
+  },
+  {
+    id: 6, title: '雨の日しっとりデート',
+    persona: '雨の日でも楽しみたいカップル',
+    budget: '2人で ¥10,000〜¥16,000',
+    duration: '約7時間',
+    tags: ['デート','落ち着き','室内','写真映え'],
+    score_keys: { purpose:['date'], mood:['calm'], priority:['photo','food'], budget:['5to10k'], relation:['lover'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'カフェ', price:'¥800〜¥1,500' },
+      { label:'ショッピング', price:'¥1,000〜¥3,000' },
+      { label:'ディナー', price:'¥4,000〜¥8,000' },
+      { label:'観覧車', price:'¥900〜¥1,000' }
+    ],
+    budget_total: '¥6,700〜¥13,500',
+    schedule: [
+      { time:'13:00', place:'室内カフェ', desc:'雨の日こそカフェでゆっくり。窓越しの雨景色もおしゃれ。' },
+      { time:'14:30', place:'ワールドポーターズ', desc:'ショッピングしながら雨を避けて移動。' },
+      { time:'16:00', place:'アート展示', desc:'横浜には屋内アートスポットが充実。' },
+      { time:'18:00', place:'室内ディナー', desc:'雨の音を聞きながらの食事は意外としっとりロマンチック。' },
+      { time:'19:30', place:'観覧車夜景', desc:'雨上がりの夜景は空気が澄んでいて絶景。' }
+    ]
+  },
+  {
+    id: 7, title: '食べ歩き満喫デート',
+    persona: 'グルメ好きカップル',
+    budget: '2人で ¥8,000〜¥13,000',
+    duration: '約6時間',
+    tags: ['デート','グルメ','ワイワイ','中華街'],
+    score_keys: { purpose:['date'], mood:['lively'], priority:['food'], budget:['5to10k'], relation:['before_dating'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'中華街食べ歩き', price:'¥2,000〜¥3,000' },
+      { label:'台湾スイーツ', price:'¥500〜¥1,000' },
+      { label:'夜カフェ', price:'¥700〜¥1,200' },
+      { label:'ラーメン', price:'¥900〜¥1,200' }
+    ],
+    budget_total: '¥4,100〜¥6,400',
+    schedule: [
+      { time:'12:30', place:'中華街食べ歩き', desc:'小籠包・台湾カステラ・ごま団子を食べ比べ。' },
+      { time:'14:00', place:'台湾スイーツ', desc:'SNS映えの台湾スイーツでフォトジェニック休憩。' },
+      { time:'15:00', place:'山下公園', desc:'食べた後はゆっくり海沿いを散歩。' },
+      { time:'16:30', place:'夜カフェ', desc:'フォトジェニックなカフェでインスタ映えショット。' },
+      { time:'18:00', place:'ラーメン', desc:'横浜といえば家系ラーメンでシメ。' }
+    ]
+  },
+  {
+    id: 8, title: 'ホテルステイ記念日プラン',
+    persona: '記念日カップル',
+    budget: '2人で ¥30,000〜¥60,000',
+    duration: '1泊2日',
+    tags: ['記念日','ホテル','高級感','サプライズ'],
+    score_keys: { purpose:['anniversary'], mood:['special'], priority:['nightview','surprise'], budget:['over20k'], relation:['lover','long_couple'], timeband:['evening'] },
+    budget_detail: [
+      { label:'ホテル宿泊', price:'¥20,000〜¥40,000' },
+      { label:'ディナー', price:'¥10,000〜¥20,000' },
+      { label:'ホテルバー', price:'¥3,000〜¥6,000' },
+      { label:'その他', price:'¥2,000〜¥5,000' }
+    ],
+    budget_total: '¥35,000〜¥71,000（2人合計）',
+    schedule: [
+      { time:'15:00', place:'ホテルチェックイン', desc:'みなとみらい一望のラグジュアリーホテルへ。' },
+      { time:'16:00', place:'ラウンジ', desc:'チェックイン後はラウンジでアフタヌーンティー。' },
+      { time:'17:30', place:'赤レンガ', desc:'夕暮れの赤レンガをふたりでゆったり散策。' },
+      { time:'19:00', place:'夜景ディナー', desc:'眼下に広がる夜景を見ながらの特別ディナー。' },
+      { time:'21:00', place:'ホテルバー', desc:'ホテル最上階のバーで特別な夜を締めくくる。' }
+    ]
+  },
+  {
+    id: 9, title: '記念日ディナープラン',
+    persona: '誕生日・記念日利用',
+    budget: '2人で ¥20,000〜¥35,000',
+    duration: '約5時間',
+    tags: ['記念日','ロマンチック','夜景ディナー','特別感'],
+    score_keys: { purpose:['anniversary'], mood:['romantic'], priority:['food','nightview'], budget:['10to20k'], relation:['lover'], timeband:['evening'] },
+    budget_detail: [
+      { label:'ディナー', price:'¥12,000〜¥20,000' },
+      { label:'花束・サプライズ', price:'¥3,000〜¥8,000' },
+      { label:'その他', price:'¥1,000〜¥2,000' }
+    ],
+    budget_total: '¥16,000〜¥30,000',
+    schedule: [
+      { time:'16:00', place:'海沿い散歩', desc:'夕暮れの横浜港をゆっくり歩いて気分を高める。' },
+      { time:'17:30', place:'夜景スポット', desc:'日没の夜景をふたりで眺める特別な時間。' },
+      { time:'19:00', place:'高級ディナー', desc:'記念日にふさわしい特別なコース料理。' },
+      { time:'21:00', place:'サプライズ演出', desc:'デザートプレートや花束でサプライズ演出。' }
+    ]
+  },
+  {
+    id: 10, title: '誕生日サプライズプラン',
+    persona: '相手を喜ばせたい人',
+    budget: '2人で ¥18,000〜¥30,000',
+    duration: '約6時間',
+    tags: ['サプライズ','花束','夜景','記念日'],
+    score_keys: { purpose:['surprise'], mood:['special'], priority:['surprise','nightview'], budget:['10to20k'], relation:['lover'], timeband:['evening'] },
+    budget_detail: [
+      { label:'花束', price:'¥3,000〜¥8,000' },
+      { label:'ディナー', price:'¥8,000〜¥15,000' },
+      { label:'カフェ', price:'¥800〜¥1,500' },
+      { label:'その他', price:'¥500〜¥1,000' }
+    ],
+    budget_total: '¥12,300〜¥25,500',
+    schedule: [
+      { time:'14:00', place:'中華街', desc:'気づかれないようにサプライズの前哨戦。' },
+      { time:'15:30', place:'カフェ', desc:'ここでプレゼントを隠して次のステップへ。' },
+      { time:'17:00', place:'夜景散歩', desc:'夜景を楽しみながら気分を盛り上げる。' },
+      { time:'18:30', place:'花束演出', desc:'夜景スポットで花束サプライズを決める。' },
+      { time:'19:00', place:'記念日ディナー', desc:'感動を余韻として引き継ぐ特別な食事。' }
+    ]
+  },
+  {
+    id: 11, title: 'プロポーズ前夜プラン',
+    persona: '本気記念日ユーザー',
+    budget: '2人で ¥40,000〜¥80,000',
+    duration: '約7時間',
+    tags: ['プロポーズ','高級','夜景','感動'],
+    score_keys: { purpose:['anniversary'], mood:['special'], priority:['nightview','surprise'], budget:['over20k'], relation:['long_couple'], timeband:['evening'] },
+    budget_detail: [
+      { label:'ホテルラウンジ', price:'¥3,000〜¥6,000' },
+      { label:'高級ディナー', price:'¥20,000〜¥40,000' },
+      { label:'花束・リング', price:'¥10,000〜¥30,000' },
+      { label:'その他', price:'¥2,000〜¥5,000' }
+    ],
+    budget_total: '¥35,000〜¥81,000',
+    schedule: [
+      { time:'16:00', place:'ホテルラウンジ', desc:'最高の夜の始まりはラグジュアリーなラウンジで。' },
+      { time:'17:30', place:'夜景散歩', desc:'日没の横浜港をふたりで歩く。' },
+      { time:'19:00', place:'高級ディナー', desc:'人生で最高のディナーを用意する。' },
+      { time:'21:00', place:'静かな夜景スポット', desc:'人が少ない特別な夜景ポイントへ移動。' },
+      { time:'22:00', place:'サプライズ', desc:'横浜の夜景の前で、最高の一言を。' }
+    ]
+  },
+  {
+    id: 12, title: '韓国っぽ女子会プラン',
+    persona: '20代女性グループ',
+    budget: '1人 ¥4,000〜¥8,000',
+    duration: '約7時間',
+    tags: ['女子会','韓国っぽ','写真映え','推し活'],
+    score_keys: { purpose:['girls'], mood:['lively'], priority:['photo','food'], budget:['5to10k'], relation:['oshi'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'カフェ（韓国系）', price:'¥800〜¥1,500' },
+      { label:'雑貨・ショッピング', price:'¥1,000〜¥3,000' },
+      { label:'夜カフェ', price:'¥700〜¥1,200' },
+      { label:'その他', price:'¥500〜¥1,000' }
+    ],
+    budget_total: '¥3,000〜¥6,700',
+    schedule: [
+      { time:'13:00', place:'韓国っぽカフェ', desc:'ミニマルでSNS映え抜群のカフェからスタート。' },
+      { time:'14:30', place:'雑貨屋巡り', desc:'韓国っぽグッズや推しグッズを探してショッピング。' },
+      { time:'16:00', place:'赤レンガ', desc:'フォトジェニックな赤レンガで撮影タイム。' },
+      { time:'17:30', place:'夜カフェ', desc:'夕方の光が一番きれいな時間帯に外でフォト。' },
+      { time:'19:00', place:'写真撮影', desc:'みなとみらいの夜景をバックにベストショット。' }
+    ]
+  },
+  {
+    id: 13, title: '夜カフェ女子会プラン',
+    persona: '仕事終わり女子会',
+    budget: '1人 ¥3,000〜¥6,000',
+    duration: '約4時間',
+    tags: ['女子会','夜カフェ','落ち着き','海見え'],
+    score_keys: { purpose:['girls'], mood:['calm'], priority:['photo','food'], budget:['under5k'], relation:['after_work'], timeband:['night'] },
+    budget_detail: [
+      { label:'カフェ1軒目', price:'¥700〜¥1,200' },
+      { label:'夜カフェ2軒目', price:'¥800〜¥1,500' },
+      { label:'スイーツ', price:'¥500〜¥1,000' },
+      { label:'その他', price:'¥0〜¥500' }
+    ],
+    budget_total: '¥2,000〜¥4,200',
+    schedule: [
+      { time:'18:00', place:'海見えカフェ', desc:'仕事終わりにほっとできる海の見えるカフェ。' },
+      { time:'19:00', place:'夜散歩', desc:'みなとみらいの夜風を感じながらゆっくり歩く。' },
+      { time:'20:00', place:'夜カフェ', desc:'2軒目は雰囲気の違うカフェで語り合う。' },
+      { time:'21:00', place:'スイーツ', desc:'〆のスイーツで甘い時間を。' }
+    ]
+  },
+  {
+    id: 14, title: 'ご褒美女子会プラン',
+    persona: '20代後半女性',
+    budget: '1人 ¥8,000〜¥15,000',
+    duration: '約6時間',
+    tags: ['女子会','ご褒美','写真映え','非日常'],
+    score_keys: { purpose:['girls'], mood:['special'], priority:['photo','food'], budget:['10to20k'], relation:['birthday'], timeband:['evening'] },
+    budget_detail: [
+      { label:'アフタヌーンティー', price:'¥3,000〜¥6,000' },
+      { label:'ディナー', price:'¥5,000〜¥10,000' },
+      { label:'その他', price:'¥500〜¥1,000' }
+    ],
+    budget_total: '¥8,500〜¥17,000',
+    schedule: [
+      { time:'14:00', place:'アフタヌーンティー', desc:'ホテルのアフタヌーンティーで非日常のスタート。' },
+      { time:'16:00', place:'赤レンガ', desc:'夕暮れの赤レンガを散策しながらフォトタイム。' },
+      { time:'17:30', place:'夜景', desc:'黄金の時間帯に夜景を楽しむ。' },
+      { time:'19:00', place:'おしゃれディナー', desc:'ご褒美にふさわしい上質なディナーで締め。' }
+    ]
+  },
+  {
+    id: 15, title: '1日遊び尽くし横浜プラン',
+    persona: '友達グループ',
+    budget: '1人 ¥5,000〜¥10,000',
+    duration: '約9時間',
+    tags: ['友達','観光','ワイワイ','横浜満喫'],
+    score_keys: { purpose:['friends'], mood:['lively'], priority:['walk','food'], budget:['5to10k'], relation:['reunion'], timeband:['lunch'] },
+    budget_detail: [
+      { label:'中華街食べ歩き', price:'¥1,500〜¥2,500' },
+      { label:'コスモワールド', price:'¥500〜¥1,500' },
+      { label:'居酒屋', price:'¥2,500〜¥4,000' },
+      { label:'その他', price:'¥500〜¥1,000' }
+    ],
+    budget_total: '¥5,000〜¥9,000',
+    schedule: [
+      { time:'11:30', place:'中華街', desc:'横浜観光はやっぱり中華街から。みんなでシェアして食べ歩き。' },
+      { time:'13:00', place:'山下公園', desc:'食後は海を見ながらのんびり散歩。' },
+      { time:'15:00', place:'赤レンガ', desc:'横浜の顔ともいえる観光スポットでフォト。' },
+      { time:'17:00', place:'コスモワールド', desc:'みんなで乗り物に乗って青春全開。' },
+      { time:'18:30', place:'夜景', desc:'横浜の夜景をバックに集合写真。' },
+      { time:'20:00', place:'居酒屋', desc:'今日の思い出を語りながら乾杯。' }
+    ]
+  }
+];
+
+// ── スコアリングロジック ──
+function calcScore(plan) {
+  let score = 0;
+  const k = plan.score_keys;
+  if (k.purpose.includes(answers.purpose)) score += 35;
+  if (k.mood.includes(answers.mood)) score += 20;
+  answers.priority.forEach(p => { if (k.priority.includes(p)) score += 10; });
+  if (k.budget.includes(answers.budget)) score += 15;
+  if (answers.relation && k.relation && k.relation.includes(answers.relation)) score += 10;
+  if (answers.timeband && k.timeband && k.timeband.includes(answers.timeband)) score += 10;
+  score += Math.random() * 3;
+  return Math.min(score, 99);
+}
+
+function getMatchedPlans() {
+  return PLANS.map(p => ({ ...p, matchScore: calcScore(p) }))
+    .sort((a, b) => b.matchScore - a.matchScore);
+}
+
+// ── 結果描画 ──
+function renderResult(plans) {
+  const top = plans[0];
+  const pct = Math.round(top.matchScore);
+
+  // ヘッダー
+  document.querySelector('.result-match').textContent = `おすすめ度 ${pct}%`;
+  document.querySelector('.result-title').innerHTML = top.title;
+  document.querySelector('.result-meta').innerHTML =
+    `<span>所要時間：${top.duration}</span><span>予算：${top.budget}</span>`;
+
+  // タグ
+  document.querySelector('.result-tags').innerHTML =
+    top.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+  // コンセプト（plan-points）
+  document.querySelector('.plan-concept').innerHTML =
+    top.schedule.slice(0,3).map(s => s.place).join('・') + 'を巡る<br>' + top.persona + 'にぴったりのプラン。';
+
+  document.querySelector('.plan-points').innerHTML =
+    top.tags.map(t => `<li>${t}</li>`).join('');
+
+  // タイムライン
+  const tl = document.querySelector('.timeline');
+  tl.innerHTML = top.schedule.map(s => `
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">${s.time}</div>
+      <div class="timeline-content">
+        <h4>${s.place}</h4>
+        <p>${s.desc}</p>
+      </div>
+    </div>`).join('');
+
+  // 予算
+  const budgetItems = document.getElementById('budgetItems');
+  const budgetTotal = document.getElementById('budgetTotal');
+  if (budgetItems && top.budget_detail) {
+    budgetItems.innerHTML = top.budget_detail.map(b => `
+      <div class="budget-item">
+        <p class="budget-item-label">${b.label}</p>
+        <p class="budget-item-price">${b.price}</p>
+      </div>`).join('');
+  }
+  if (budgetTotal) budgetTotal.textContent = top.budget_total;
+
+  // 2位・3位候補（サブカード）
+  const sub = plans.slice(1, 3);
+  const subArea = document.getElementById('sub-plans');
+  if (subArea) {
+    subArea.innerHTML = sub.map(p => `
+      <div class="sub-plan-card" onclick="switchPlan(${p.id})">
+        <div class="sub-plan-rank">${Math.round(p.matchScore)}%</div>
+        <div class="sub-plan-title">${p.title}</div>
+        <div class="sub-plan-tags">${p.tags.slice(0,2).join(' / ')}</div>
+      </div>`).join('');
+  }
+}
+
+let currentPlans = [];
+
+function switchPlan(id) {
+  const idx = currentPlans.findIndex(p => p.id === id);
+  if (idx < 0) return;
+  // 選んだプランを先頭に
+  const reordered = [currentPlans[idx], ...currentPlans.filter(p => p.id !== id)];
+  currentPlans = reordered;
+  renderResult(currentPlans);
+  document.querySelectorAll('.sub-plan-card').forEach(c => c.classList.remove('selected'));
+}
+
+// ── クイズ操作 ──
+function selectOption(el, key, val) {
+  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[key] = val;
+  const btnMap = { purpose:'next1', mood:'next2', budget:'next4', relation:'next5', timeband:'next6' };
+  if (btnMap[key]) document.getElementById(btnMap[key]).disabled = false;
+}
+
+function toggleOption(el, key, val) {
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) { answers[key].push(val); }
+  else { answers[key] = answers[key].filter(v => v !== val); }
+}
+
+function goTo(step) {
+  document.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('analyzing').classList.remove('active');
+  document.querySelectorAll('.progress-step').forEach((s, i) => {
+    s.classList.toggle('active', i < step);
+  });
+  const card = document.getElementById('q' + step);
+  if (card) card.classList.add('active');
+}
+
+function scrollToQuiz() {
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── ローディング＆結果表示 ──
+function startAnalyzing() {
+  document.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('active'));
+  document.querySelector('.quiz-section').style.display = 'none';
+
+  const overlay = document.getElementById('analyzing');
+  overlay.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 回答に応じたローディングテキストを生成
+  const timebandMap = { lunch:'お昼からのプラン', evening:'夕方からのプラン', night:'夜メインのプラン' };
+  const purposeMap = { date:'デート', girls:'女子会', anniversary:'記念日・誕生日', surprise:'サプライズ', friends:'友達おでかけ' };
+  const moodMap = { romantic:'ロマンチック', calm:'落ち着いた', lively:'ワイワイ楽しい', mature:'大人っぽい', special:'特別感のある' };
+  const priorityMap = { nightview:'夜景スポット', photo:'写真映えスポット', food:'グルメ・食事', walk:'散歩コース', surprise:'サプライズ演出' };
+  const budgetMap = { under5k:'〜5,000円', '5to10k':'5,000〜10,000円', '10to20k':'10,000〜20,000円', over20k:'20,000円以上' };
+
+  const purposeLabel = purposeMap[answers.purpose] || 'おでかけ';
+  const moodLabel = moodMap[answers.mood] || '';
+  const priorityLabels = answers.priority.map(p => priorityMap[p]).filter(Boolean);
+  const budgetLabel = budgetMap[answers.budget] || '';
+  const timebandLabel = timebandMap[answers.timeband] || '';
+
+  const texts = [
+    `${purposeLabel}プランを検索中...`,
+    moodLabel ? `${moodLabel}な雰囲気のスポットを確認中...` : '雰囲気に合うエリアを確認中...',
+    priorityLabels.length > 0 ? `${priorityLabels[0]}との相性をチェック中...` : '横浜のスポットを分析中...',
+    timebandLabel ? `${timebandLabel}に合わせて最適化中...` : 'あなたにぴったりのYOKOHAMA SCENEを作成中...'
+  ];
+
+  // テキストをセット
+  ['ai1','ai2','ai3','ai4'].forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = '・' + texts[i]; el.classList.remove('visible'); }
+  });
+
+  const ring = document.getElementById('ringProgress');
+  const circumference = 553;
+  ring.style.strokeDashoffset = circumference;
+
+  let pct = 0;
+  const pctEl = document.getElementById('analyzePct');
+  const timer = setInterval(() => {
+    pct += 1;
+    pctEl.textContent = pct + '%';
+    ring.style.strokeDashoffset = circumference - (circumference * pct / 100);
+    if (pct >= 20) document.getElementById('ai1').classList.add('visible');
+    if (pct >= 50) document.getElementById('ai2').classList.add('visible');
+    if (pct >= 70) document.getElementById('ai3').classList.add('visible');
+    if (pct >= 90) { const ai4 = document.getElementById('ai4'); if (ai4) ai4.classList.add('visible'); }
+    if (pct >= 100) {
+      clearInterval(timer);
+      currentPlans = getMatchedPlans();
+      setTimeout(() => {
+        overlay.classList.remove('active');
+        renderResult(currentPlans);
+        showResult();
+      }, 800);
+    }
+  }, 35);
+}
+
+function showResult() {
+  const result = document.getElementById('result');
+  result.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveal, 300);
+}
+
+function initReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+}
+
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.88) el.classList.add('visible');
+  });
+});
+</script>
+</body>
+</html>
