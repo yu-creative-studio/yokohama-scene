@@ -954,7 +954,168 @@
     margin-top: 8px;
   }
 
-  /* BUDGET */
+  /* SPOT CARDS */
+  .spot-card-section {
+    margin-top: 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .spot-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .spot-card-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-lt);
+    letter-spacing: 1px;
+  }
+
+  .spot-card-label svg {
+    width: 12px; height: 12px;
+    stroke: var(--dusty); fill: none;
+    stroke-width: 2;
+  }
+
+  .spot-card-slide-hint {
+    font-size: 10px;
+    color: var(--text-lt);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .spot-cards-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+  }
+
+  .spot-cards-scroll::-webkit-scrollbar { display: none; }
+
+  .spot-card {
+    flex: 0 0 160px;
+    background: var(--bg2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .spot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .spot-card-img {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, var(--rose-xlt), var(--bg2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .spot-card-body {
+    padding: 10px 12px;
+  }
+
+  .spot-card-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .spot-card-desc {
+    font-size: 11px;
+    color: var(--text-lt);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .spot-card-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+
+  .spot-card-tag {
+    font-size: 9px;
+    padding: 2px 8px;
+    background: var(--rose-xlt);
+    color: var(--dusty);
+    border-radius: 10px;
+    border: 1px solid var(--rose-lt);
+  }
+
+  .spot-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .spot-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    color: var(--text-md);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .spot-card-rating svg {
+    width: 10px; height: 10px;
+    fill: #E8A87C; stroke: none;
+  }
+
+  .spot-card-map {
+    font-size: 10px;
+    color: var(--dusty);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .spot-card-map:hover { color: var(--rose); }
+
+  .spot-card-walk svg {
+    width: 10px; height: 10px;
+    stroke: var(--text-lt); fill: none;
+    stroke-width: 2;
+  }
+
+  .spot-card-dots {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .spot-card-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--border2);
+    transition: background 0.3s;
+  }
+
+  .spot-card-dot.active { background: var(--rose); }
   .budget-section {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -1059,6 +1220,201 @@
     font-size: 11px;
     color: var(--text-lt);
     letter-spacing: 1px;
+  }
+
+
+  /* ── SPOT CARDS ── */
+  .spot-card-wrap {
+    margin-top: 12px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  .spot-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .spot-card-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-lt);
+    letter-spacing: 1px;
+  }
+
+  .spot-card-label svg {
+    width: 13px; height: 13px;
+    stroke: var(--dusty); fill: none;
+    stroke-width: 1.5; stroke-linecap: round;
+  }
+
+  .spot-slide-hint {
+    font-size: 10px;
+    color: var(--text-lt);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .spot-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .spot-slider::-webkit-scrollbar { display: none; }
+
+  .spot-card {
+    flex: 0 0 160px;
+    scroll-snap-align: start;
+    background: var(--bg2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .spot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196,145,138,0.15);
+  }
+
+  .spot-card-img {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, var(--rose-xlt), var(--bg2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .spot-card-body {
+    padding: 10px 10px 12px;
+  }
+
+  .spot-card-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .spot-card-desc {
+    font-size: 11px;
+    color: var(--text-lt);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .spot-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .spot-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    color: var(--rose);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+
+  .spot-card-walk {
+    font-size: 10px;
+    color: var(--text-lt);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .spot-card-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+
+  .spot-card-tag {
+    font-size: 9px;
+    padding: 2px 7px;
+    background: var(--rose-xlt);
+    color: var(--dusty);
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .spot-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .spot-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--border2);
+    transition: background 0.3s;
+  }
+
+  .spot-dot.active { background: var(--rose); }
+
+  @media (max-width: 480px) {
+    .spot-card { flex: 0 0 140px; }
+    .spot-card-img { height: 85px; }
+  }
+
+  .retake-wrap {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .retake-btn {
+    background: none;
+    border: 1px solid var(--border2);
+    color: var(--text-md);
+    font-size: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 2px;
+    padding: 14px 40px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .retake-btn:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+    background: var(--rose-xlt);
   }
 
   /* サブプラン */
@@ -1788,6 +2144,9 @@
         <p class="sub-plans-label">Other recommended plans</p>
         <div class="sub-plans-grid" id="sub-plans"></div>
       </div>
+      <div class="retake-wrap">
+        <button class="retake-btn" onclick="retakeDiagnosis()">もう一度診断する</button>
+      </div>
     </div>
 
   </div>
@@ -1858,6 +2217,171 @@ const navEl = document.querySelector('nav');
 window.addEventListener('scroll', () => {
   navEl.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
+
+function retakeDiagnosis() {
+  // 回答リセット
+  answers.purpose = null;
+  answers.mood = null;
+  answers.priority = [];
+  answers.budget = null;
+  answers.relation = null;
+  answers.timeband = null;
+
+  // 選択状態をリセット
+  document.querySelectorAll('.quiz-option.selected').forEach(el => el.classList.remove('selected'));
+
+  // 次へボタンを無効化
+  ['next1','next2','next3','next4','next5','next6'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.disabled = true;
+  });
+
+  // 結果を非表示
+  document.getElementById('result').classList.remove('active');
+
+  // クイズセクションを表示・Q1へ
+  const quizSection = document.querySelector('.quiz-section');
+  quizSection.style.display = '';
+  goTo(1);
+
+  // クイズまでスクロール
+  setTimeout(() => {
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ── スポットデータ ──
+const SPOTS = [{"name": "江戸清 中華街本店", "category": "食べ歩き", "desc": "名物豚まんが大人気。", "rating": 4.3, "walk_min": 3, "affiliate_url": "", "place_keys": ["中華街食べ歩き", "食べ歩き", "中華街", "中華街ランチ"]}, {"name": "王府井 横浜中華街店", "category": "食べ歩き", "desc": "焼き小籠包の人気店。", "rating": 4.2, "walk_min": 4, "affiliate_url": "", "place_keys": ["中華街食べ歩き", "食べ歩き", "中華街", "スイーツ巡り"]}, {"name": "鵬天閣 新館", "category": "中華", "desc": "焼き小籠包が絶品。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["中華街", "中華街ランチ", "ディナー", "食べ歩き"]}, {"name": "山東 本店", "category": "中華", "desc": "水餃子が人気の名店。", "rating": 4.5, "walk_min": 5, "affiliate_url": "", "place_keys": ["中華街", "ランチ", "ディナー", "中華街ランチ"]}, {"name": "菜香新館", "category": "中華", "desc": "点心が人気の老舗。", "rating": 4.5, "walk_min": 6, "affiliate_url": "", "place_keys": ["中華街", "ディナー", "ランチ", "高級ディナー"]}, {"name": "重慶飯店 本館", "category": "中華", "desc": "四川料理の老舗。", "rating": 4.4, "walk_min": 6, "affiliate_url": "", "place_keys": ["中華街", "記念日ディナー", "高級ディナー", "ディナー"]}, {"name": "横浜大飯店", "category": "中華", "desc": "食べ放題が人気。", "rating": 4.3, "walk_min": 5, "affiliate_url": "", "place_keys": ["中華街", "ランチ", "ディナー", "中華街待ち合わせ"]}, {"name": "招福門", "category": "中華", "desc": "点心食べ放題が有名。", "rating": 4.2, "walk_min": 5, "affiliate_url": "", "place_keys": ["中華街", "ディナー", "ランチ", "中華街ランチ"]}, {"name": "七茶", "category": "台湾スイーツ", "desc": "台湾茶と甘味が人気。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["台湾スイーツ", "スイーツカフェ", "カフェ", "中華カフェ"]}, {"name": "耀盛號売店", "category": "ショッピング", "desc": "中華食材が豊富。", "rating": 4.0, "walk_min": 4, "affiliate_url": "", "place_keys": ["ショッピング", "雑貨屋巡り", "中華街", "食べ歩き"]}, {"name": "bills 横浜赤レンガ倉庫", "category": "カフェ", "desc": "朝食が人気の名店。", "rating": 4.4, "walk_min": 8, "affiliate_url": "", "place_keys": ["ブランチカフェ", "赤レンガ倉庫", "海沿いカフェ", "カフェランチ"]}, {"name": "Pie Holic", "category": "カフェ", "desc": "パイ料理が人気。", "rating": 4.3, "walk_min": 7, "affiliate_url": "", "place_keys": ["マリンウォーク", "おしゃれディナー", "テラスカフェ", "海沿いカフェ"]}, {"name": "A16 YOKOHAMA", "category": "イタリアン", "desc": "海沿いの人気店。", "rating": 4.2, "walk_min": 7, "affiliate_url": "", "place_keys": ["マリンウォーク", "ディナー", "海沿い散歩", "おしゃれディナー"]}, {"name": "QUAYS pacific grill", "category": "レストラン", "desc": "醸造所併設レストラン。", "rating": 4.3, "walk_min": 10, "affiliate_url": "", "place_keys": ["クラフトビール店", "みなとみらい夜景", "夜景ディナー", "海沿い夜景散歩"]}, {"name": "水信フルーツパーラー", "category": "スイーツ", "desc": "果物パフェが人気。", "rating": 4.5, "walk_min": 3, "affiliate_url": "", "place_keys": ["スイーツカフェ", "カフェ・スイーツ", "馬車道カフェ", "夕方カフェ"]}, {"name": "UNI COFFEE ROASTERY 横浜赤レンガ倉庫", "category": "カフェ", "desc": "人気ロースタリーカフェ。", "rating": 4.2, "walk_min": 7, "affiliate_url": "", "place_keys": ["カフェ", "赤レンガ倉庫", "カフェ休憩", "カフェタイム"]}, {"name": "RIGOLETTO OCEAN CLUB", "category": "イタリアン", "desc": "夜景が綺麗な人気店。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["夜景ディナー", "ディナー", "みなとみらい夜景", "海沿い夜景散歩"]}, {"name": "横浜ランドマークタワー スカイガーデン", "category": "展望台", "desc": "絶景夜景スポット。", "rating": 4.7, "walk_min": 5, "affiliate_url": "", "place_keys": ["みなとみらい夜景", "夜景スポット", "観覧車夜景", "夕方夜景タイム"]}, {"name": "横浜エアキャビン", "category": "アクティビティ", "desc": "空中散歩を楽しめる。", "rating": 4.4, "walk_min": 2, "affiliate_url": "", "place_keys": ["みなとみらい散歩", "夜景散歩", "汽車道散歩", "観覧車夜景"]}, {"name": "横浜赤レンガ倉庫", "category": "観光", "desc": "横浜定番スポット。", "rating": 4.5, "walk_min": 8, "affiliate_url": "", "place_keys": ["赤レンガ倉庫", "赤レンガ散歩", "赤レンガ夜景", "赤レンガ撮影"]}, {"name": "MARINE & WALK YOKOHAMA", "category": "ショッピング", "desc": "海沿い商業施設。", "rating": 4.3, "walk_min": 8, "affiliate_url": "", "place_keys": ["マリンウォーク", "ショッピング", "海沿い散歩", "マリンウォーク散歩"]}, {"name": "横浜ワールドポーターズ", "category": "商業施設", "desc": "デート定番施設。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["ワールドポーターズ", "ショッピング", "ゲームセンター", "プリクラ"]}, {"name": "よこはまコスモワールド", "category": "遊園地", "desc": "観覧車が人気。", "rating": 4.3, "walk_min": 5, "affiliate_url": "", "place_keys": ["コスモワールド", "観覧車夜景", "プリクラ・写真撮影", "夜景タイム"]}, {"name": "カップヌードルミュージアム 横浜", "category": "ミュージアム", "desc": "体験型ミュージアム。", "rating": 4.5, "walk_min": 8, "affiliate_url": "", "place_keys": ["アート展示", "館内カフェ", "みなとみらい散歩", "ショッピング"]}, {"name": "横浜ハンマーヘッド", "category": "商業施設", "desc": "海沿いの人気施設。", "rating": 4.2, "walk_min": 10, "affiliate_url": "", "place_keys": ["ハンマーヘッド散歩", "フードコート", "海沿い散歩", "夜景散歩"]}, {"name": "象の鼻テラス", "category": "観光", "desc": "海沿いの休憩スポット。", "rating": 4.2, "walk_min": 7, "affiliate_url": "", "place_keys": ["海沿い散歩", "夜景（軽め）", "赤レンガ方面へ散歩", "海沿い夜散歩"]}, {"name": "大さん橋", "category": "夜景", "desc": "横浜屈指の夜景。", "rating": 4.8, "walk_min": 10, "affiliate_url": "", "place_keys": ["大さん橋", "大さん橋夜景散歩", "夜景スポット", "静かな夜景スポット"]}, {"name": "山下公園", "category": "公園", "desc": "海沿い定番公園。", "rating": 4.6, "walk_min": 3, "affiliate_url": "", "place_keys": ["山下公園", "山下公園散歩", "海沿い散歩", "夜散歩"]}, {"name": "氷川丸", "category": "観光", "desc": "歴史ある豪華客船。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["氷川丸周辺散歩", "山下公園", "海沿い散歩", "夜景撮影タイム"]}, {"name": "横浜マリンタワー", "category": "展望台", "desc": "夜景が綺麗な名所。", "rating": 4.4, "walk_min": 3, "affiliate_url": "", "place_keys": ["夜景スポット", "山下公園散歩", "みなとみらい夜景", "夜景タイム"]}, {"name": "港の見える丘公園", "category": "公園", "desc": "横浜港を一望できる。", "rating": 4.6, "walk_min": 8, "affiliate_url": "", "place_keys": ["港の見える丘公園", "夜景スポット", "山手散歩", "静かな夜景スポット"]}, {"name": "えの木てい", "category": "カフェ", "desc": "洋館風カフェが人気。", "rating": 4.4, "walk_min": 9, "affiliate_url": "", "place_keys": ["洋館カフェ", "山手カフェ", "カフェ・スイーツ", "元町カフェ巡り"]}, {"name": "山手十番館", "category": "レストラン", "desc": "洋館レストランの名店。", "rating": 4.5, "walk_min": 10, "affiliate_url": "", "place_keys": ["クラシックレストラン", "洋館巡り", "記念日ディナー", "高級ディナー"]}, {"name": "ブラフベーカリー", "category": "ベーカリー", "desc": "人気ベーカリーカフェ。", "rating": 4.3, "walk_min": 7, "affiliate_url": "", "place_keys": ["モーニングカフェ", "カフェ・軽食", "山手カフェ", "カフェタイム"]}, {"name": "STAR JEWELRY CAFE", "category": "カフェ", "desc": "元町の人気カフェ。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["元町カフェ巡り", "おしゃれカフェ", "カフェ", "ショッピング"]}, {"name": "PATY CAFE", "category": "ドッグカフェ", "desc": "愛犬同伴OKのカフェ。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["ドッグカフェ", "元町散歩", "カフェ休憩", "おしゃれカフェ"]}, {"name": "元町ショッピングストリート", "category": "ショッピング", "desc": "横浜定番の街歩き。", "rating": 4.3, "walk_min": 2, "affiliate_url": "", "place_keys": ["元町散歩", "ショッピング", "雑貨屋巡り", "コスメ・雑貨巡り"]}, {"name": "キタムラ 元町本店", "category": "ショッピング", "desc": "老舗バッグブランド。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["ショッピング", "雑貨屋巡り", "元町散歩", "コスメ・雑貨巡り"]}, {"name": "チャーミングセール", "category": "イベント", "desc": "元町名物セール。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["ショッピング", "元町散歩", "雑貨屋巡り", "古着屋巡り"]}, {"name": "外交官の家", "category": "洋館", "desc": "西洋建築が美しい。", "rating": 4.3, "walk_min": 8, "affiliate_url": "", "place_keys": ["洋館巡り", "山手西洋館巡り", "アート展示", "山手散歩"]}, {"name": "山手111番館", "category": "洋館", "desc": "異国情緒ある洋館。", "rating": 4.2, "walk_min": 9, "affiliate_url": "", "place_keys": ["洋館巡り", "山手西洋館巡り", "山手散歩", "アート展示・ギャラリー"]}, {"name": "港の見える丘公園 ローズガーデン", "category": "公園", "desc": "バラが美しい庭園。", "rating": 4.5, "walk_min": 9, "affiliate_url": "", "place_keys": ["港の見える丘公園", "山手散歩", "夜景余韻タイム", "静かな夜景スポット"]}, {"name": "馬車道十番館", "category": "喫茶店", "desc": "レトロ喫茶の名店。", "rating": 4.4, "walk_min": 3, "affiliate_url": "", "place_keys": ["レトロ喫茶", "喫茶店", "馬車道カフェ", "レトロ喫茶巡り"]}, {"name": "北仲ブリック&ホワイト", "category": "商業施設", "desc": "川沿いのおしゃれ施設。", "rating": 4.2, "walk_min": 5, "affiliate_url": "", "place_keys": ["馬車道散歩", "川沿い夜散歩", "ショッピング", "カフェ"]}, {"name": "ラクシスフロント", "category": "商業施設", "desc": "市役所直結施設。", "rating": 4.0, "walk_min": 2, "affiliate_url": "", "place_keys": ["関内夜散歩", "カフェ", "フードコート", "館内カフェ"]}, {"name": "日本大通り", "category": "街歩き", "desc": "横浜らしい並木道。", "rating": 4.4, "walk_min": 2, "affiliate_url": "", "place_keys": ["馬車道散歩", "関内夜散歩", "夜散歩", "川沿い夜散歩"]}, {"name": "Cecil", "category": "バー", "desc": "隠れ家感ある人気店。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["隠れ家バー", "バー", "2軒目バー", "締めバー"]}, {"name": "IBREW 横浜西口店", "category": "ビアバー", "desc": "クラフトビール豊富。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["クラフトビール店", "2軒目ビアバー", "バー1軒目", "はしご酒"]}, {"name": "THE UNION BAR & LOUNGE", "category": "ホテルバー", "desc": "大人向けラウンジ。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["ホテルバー", "ホテルラウンジ", "ラウンジ", "記念日ディナー"]}, {"name": "Marine Rouge", "category": "クルージング", "desc": "夜景クルーズが人気。", "rating": 4.6, "walk_min": 8, "affiliate_url": "", "place_keys": ["クルージング", "クルージング・海沿い散歩", "夜景サプライズ", "サプライズ演出"]}, {"name": "汽車道", "category": "散歩", "desc": "海沿い散歩の定番。", "rating": 4.6, "walk_min": 2, "affiliate_url": "", "place_keys": ["汽車道", "汽車道散歩", "汽車道夜景散歩", "夜景散歩"]}, {"name": "野毛都橋商店街", "category": "居酒屋", "desc": "レトロ酒場街が人気。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["都橋商店街", "野毛はしご酒", "ローカル居酒屋", "野毛居酒屋"]}, {"name": "ホッピー仙人", "category": "居酒屋", "desc": "野毛名物の人気店。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["野毛1軒目", "野毛はしご酒", "昼飲みスタート", "居酒屋"]}, {"name": "第一亭", "category": "中華", "desc": "野毛の老舗中華。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["野毛居酒屋", "ディナー", "ローカル居酒屋", "夜ご飯"]}, {"name": "センターグリル", "category": "洋食", "desc": "ナポリタンの名店。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["ランチ", "レトロ喫茶巡り", "カジュアルディナー", "野毛散歩"]}, {"name": "野毛山動物園", "category": "動物園", "desc": "無料で楽しめる動物園。", "rating": 4.3, "walk_min": 12, "affiliate_url": "", "place_keys": ["野毛散歩", "みなとみらい散歩", "カフェ休憩", "夜散歩"]}, {"name": "chano-ma 横浜", "category": "カフェ", "desc": "小上がり席が人気。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["おしゃれカフェ", "夜カフェ", "カフェタイム", "ワールドポーターズ"]}, {"name": "Blue Bottle Coffee みなとみらい", "category": "カフェ", "desc": "人気コーヒー店。", "rating": 4.3, "walk_min": 6, "affiliate_url": "", "place_keys": ["カフェ", "カフェ休憩", "海見えカフェ", "おしゃれカフェ"]}, {"name": "HAMA CAFE", "category": "カフェ", "desc": "中華街近くの人気店。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["カフェ", "中華カフェ", "夕方カフェ", "夜カフェ"]}, {"name": "buy me stand MOTOMACHI", "category": "カフェ", "desc": "韓国風人気カフェ。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["韓国っぽカフェ", "韓国カフェ", "カフェランチ", "元町カフェ巡り"]}, {"name": "THE KAHALA HOTEL & RESORT YOKOHAMA", "category": "ホテル", "desc": "ラグジュアリー空間。", "rating": 4.7, "walk_min": 8, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "ホテルラウンジ", "高級ディナー", "記念日ディナー"]}, {"name": "ヨコハマ グランド インターコンチネンタル ホテル", "category": "ホテル", "desc": "横浜代表の高級ホテル。", "rating": 4.6, "walk_min": 5, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "ホテルバー", "夜景ディナー", "みなとみらい夜景"]}, {"name": "横浜ベイホテル東急", "category": "ホテル", "desc": "観覧車夜景が魅力。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "観覧車夜景", "夜景タイム", "ホテルラウンジ"]}, {"name": "横浜ロイヤルパークホテル", "category": "ホテル", "desc": "高層階夜景が絶景。", "rating": 4.7, "walk_min": 5, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "みなとみらい夜景", "夜景スポット", "高級ディナー"]}, {"name": "ホテルニューグランド", "category": "ホテル", "desc": "クラシックホテルの名門。", "rating": 4.7, "walk_min": 3, "affiliate_url": "", "place_keys": ["クラシックレストラン", "ホテルラウンジ", "山下公園", "記念日ディナー"]}, {"name": "ハイアットリージェンシー横浜", "category": "ホテル", "desc": "大人向け高級ホテル。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "ホテルバー", "関内ディナー", "ラウンジ"]}, {"name": "オークウッドスイーツ横浜", "category": "ホテル", "desc": "長期滞在にも人気。", "rating": 4.6, "walk_min": 3, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "みなとみらい夜景", "夜景余韻タイム", "ラウンジ"]}, {"name": "ホテル・ザ・ノット ヨコハマ", "category": "ホテル", "desc": "おしゃれ空間が人気。", "rating": 4.2, "walk_min": 5, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "おしゃれディナー", "バー", "夜カフェ"]}, {"name": "三井ガーデンホテル横浜みなとみらいプレミア", "category": "ホテル", "desc": "夜景が綺麗な新ホテル。", "rating": 4.6, "walk_min": 6, "affiliate_url": "", "place_keys": ["ホテルチェックイン", "夜景スポット", "みなとみらい夜景", "ホテルラウンジ"]}, {"name": "横浜みなとみらい万葉倶楽部", "category": "温浴施設", "desc": "足湯夜景が人気。", "rating": 4.2, "walk_min": 8, "affiliate_url": "", "place_keys": ["温浴施設", "スパ・サウナ", "夜景スポット", "夜景余韻タイム"]}, {"name": "RAKU SPA Bay 横浜", "category": "温浴施設", "desc": "大型スパ施設。", "rating": 4.1, "walk_min": 10, "affiliate_url": "", "place_keys": ["スパ・サウナ", "温浴施設", "夜ご飯"]}, {"name": "横浜アンパンマンこどもミュージアム", "category": "ミュージアム", "desc": "家族連れに人気。", "rating": 4.3, "walk_min": 10, "affiliate_url": "", "place_keys": ["館内カフェ", "ショッピング", "フードコート", "みなとみらい散歩"]}, {"name": "MOVIX横浜", "category": "映画館", "desc": "駅近映画館。", "rating": 4.0, "walk_min": 4, "affiliate_url": "", "place_keys": ["映画館", "夜ご飯", "カフェ休憩"]}, {"name": "横浜ブルク13", "category": "映画館", "desc": "桜木町人気シネコン。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["映画館", "桜木町ディナー", "夜ご飯", "みなとみらい散歩"]}, {"name": "GiGO 横浜中華街", "category": "ゲームセンター", "desc": "デート定番スポット。", "rating": 3.9, "walk_min": 2, "affiliate_url": "", "place_keys": ["ゲームセンター", "プリクラ", "プリクラ・写真撮影", "中華街"]}, {"name": "namco 横浜ワールドポーターズ店", "category": "ゲームセンター", "desc": "大型アミューズメント。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["ゲームセンター", "ワールドポーターズ", "プリクラ", "プリクラ・グッズ巡り"]}, {"name": "muse 横浜西口店", "category": "シーシャバー", "desc": "落ち着くシーシャ空間。", "rating": 4.2, "walk_min": 5, "affiliate_url": "", "place_keys": ["シーシャバー", "夜カフェ", "バー", "2軒目バー"]}, {"name": "Jazz Cafe GIG", "category": "ジャズバー", "desc": "生演奏が人気。", "rating": 4.4, "walk_min": 6, "affiliate_url": "", "place_keys": ["ジャズバー", "バー", "夜景余韻タイム"]}, {"name": "REVO BREWING", "category": "ビアバー", "desc": "横浜人気ブルワリー。", "rating": 4.4, "walk_min": 8, "affiliate_url": "", "place_keys": ["クラフトビール店", "バー1軒目", "はしご酒", "海沿い夜景散歩"]}, {"name": "CHARA", "category": "居酒屋", "desc": "野毛の人気酒場。", "rating": 4.2, "walk_min": 5, "affiliate_url": "", "place_keys": ["野毛居酒屋", "野毛1軒目", "はしご酒", "居酒屋"]}, {"name": "野毛たべもの横丁", "category": "居酒屋", "desc": "はしご酒の定番。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["野毛はしご酒", "ローカル居酒屋", "居酒屋", "夜ご飯"]}, {"name": "AFURI 横浜ジョイナス", "category": "ラーメン", "desc": "柚子塩ラーメン人気。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["ラーメン", "締めラーメン", "深夜ラーメン", "夜ご飯"]}, {"name": "横浜家系ラーメン 勝鬨家", "category": "ラーメン", "desc": "濃厚家系の人気店。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["ラーメン", "締めラーメン", "関内夜散歩", "夜ご飯"]}, {"name": "すみれ 横浜店", "category": "ラーメン", "desc": "味噌ラーメンの名店。", "rating": 4.1, "walk_min": 6, "affiliate_url": "", "place_keys": ["深夜ラーメン", "ラーメン", "夜ご飯", "締めラーメン"]}, {"name": "焼肉うしごろ 横浜店", "category": "焼肉", "desc": "高級焼肉が人気。", "rating": 4.6, "walk_min": 5, "affiliate_url": "", "place_keys": ["焼肉ディナー", "高級ディナー", "記念日ディナー", "夜景ディナー"]}, {"name": "横浜焼肉kintan", "category": "焼肉", "desc": "雰囲気抜群の焼肉店。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["焼肉ディナー", "おしゃれディナー", "夜ご飯", "関内ディナー"]}, {"name": "Cafe de Lento", "category": "カフェ", "desc": "落ち着く古民家カフェ。", "rating": 4.3, "walk_min": 7, "affiliate_url": "", "place_keys": ["古民家カフェランチ", "カフェランチ", "おしゃれカフェ", "夕方カフェ"]}, {"name": "喫茶エレーナ", "category": "喫茶店", "desc": "老舗喫茶の人気店。", "rating": 4.4, "walk_min": 8, "affiliate_url": "", "place_keys": ["喫茶店", "レトロ喫茶", "レトロ喫茶巡り", "山手カフェ"]}, {"name": "Ralph's Coffee NEWoMan横浜", "category": "カフェ", "desc": "海外風おしゃれカフェ。", "rating": 4.2, "walk_min": 2, "affiliate_url": "", "place_keys": ["おしゃれカフェ", "カフェタイム", "カフェ・スイーツ", "ショッピング"]}, {"name": "韓国カフェ イチゴ", "category": "韓国カフェ", "desc": "韓国風スイーツ人気。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["韓国カフェ", "韓国っぽカフェ", "スイーツカフェ", "カフェ・スイーツ"]}, {"name": "横浜ベイクォーター", "category": "商業施設", "desc": "海沿いデート定番。", "rating": 4.3, "walk_min": 3, "affiliate_url": "", "place_keys": ["海沿い散歩", "ショッピング", "海沿いカフェ", "ベイエリアドライブ"]}, {"name": "THE WHARF HOUSE YAMASHITA KOEN", "category": "カフェ", "desc": "山下公園の人気カフェ。", "rating": 4.2, "walk_min": 2, "affiliate_url": "", "place_keys": ["山下公園", "海沿いカフェ", "テラスカフェ", "夜カフェ"]}, {"name": "象の鼻カフェ", "category": "カフェ", "desc": "海沿い景色が魅力。", "rating": 4.1, "walk_min": 6, "affiliate_url": "", "place_keys": ["海見えカフェ", "カフェ休憩", "赤レンガ散歩", "海沿い散歩"]}, {"name": "24/7 restaurant", "category": "レストラン", "desc": "夜景が見える人気店。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜景ディナー", "みなとみらい夜景", "カジュアルディナー", "夜景タイム"]}, {"name": "アニヴェルセルカフェ みなとみらい横浜", "category": "カフェ", "desc": "運河沿いの人気店。", "rating": 4.2, "walk_min": 6, "affiliate_url": "", "place_keys": ["テラスカフェ", "海沿いカフェ", "おしゃれカフェ", "夜景カフェ"]}, {"name": "万国橋", "category": "夜景スポット", "desc": "写真映え夜景スポット。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜景撮影タイム", "みなとみらい夜景", "川沿い夜散歩", "静かな夜景スポット"]}, {"name": "横浜港シンボルタワー", "category": "夜景スポット", "desc": "ドライブ夜景が人気。", "rating": 4.4, "walk_min": 15, "affiliate_url": "", "place_keys": ["大黒ふ頭方面", "海沿いドライブ", "車内夜景タイム", "夜景スポット"]}, {"name": "大黒PA", "category": "ドライブ", "desc": "夜景ドライブ定番。", "rating": 4.3, "walk_min": 15, "affiliate_url": "", "place_keys": ["大黒ふ頭方面ドライブ", "車内夜景タイム", "夜景スポット", "ベイエリアドライブ"]}, {"name": "コニカミノルタプラネタリアYOKOHAMA", "category": "プラネタリウム", "desc": "幻想的な映像空間。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜景余韻タイム", "映画館", "館内カフェ"]}, {"name": "YOKOHAMA AIR CABIN", "category": "アクティビティ", "desc": "空中移動を楽しめる。", "rating": 4.4, "walk_min": 2, "affiliate_url": "", "place_keys": ["みなとみらい散歩", "汽車道散歩", "観覧車夜景", "夜景散歩"]}, {"name": "横浜開港資料館", "category": "資料館", "desc": "横浜の歴史を学べる。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["アート展示", "アート展示・ギャラリー", "関内夜散歩", "洋館巡り"]}, {"name": "神奈川県立歴史博物館", "category": "博物館", "desc": "歴史建築も魅力。", "rating": 4.2, "walk_min": 4, "affiliate_url": "", "place_keys": ["アート展示", "馬車道散歩", "洋館巡り", "アート展示・ギャラリー"]}, {"name": "横浜美術館", "category": "美術館", "desc": "現代アートが人気。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["アート展示", "アート展示・ギャラリー", "みなとみらい散歩", "館内カフェ"]}, {"name": "Cafe OMNIBUS", "category": "カフェ", "desc": "倉庫風おしゃれ空間。", "rating": 4.1, "walk_min": 6, "affiliate_url": "", "place_keys": ["おしゃれカフェ", "カフェタイム", "馬車道カフェ", "カフェ休憩"]}, {"name": "peace flower market & cafe", "category": "カフェ", "desc": "花に囲まれたカフェ。", "rating": 4.4, "walk_min": 7, "affiliate_url": "", "place_keys": ["おしゃれカフェ", "花束演出", "スイーツカフェ", "夕方カフェ"]}, {"name": "MANGIA MANGIA", "category": "イタリアン", "desc": "夜景が綺麗な人気店。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["夜景ディナー", "海沿い夜景散歩", "おしゃれディナー", "みなとみらい夜景"]}, {"name": "Butter 横浜ベイクォーター", "category": "カフェ", "desc": "パンケーキが人気。", "rating": 4.0, "walk_min": 3, "affiliate_url": "", "place_keys": ["スイーツカフェ", "カフェランチ", "海沿いカフェ", "ブランチカフェ"]}, {"name": "湘南パンケーキ 横浜みなとみらい店", "category": "カフェ", "desc": "ふわふわパンケーキ。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["スイーツタイム", "カフェ・スイーツ", "おしゃれカフェ", "海見えカフェ"]}, {"name": "Cafe Gram 横浜店", "category": "カフェ", "desc": "プレミアムパンケーキ。", "rating": 4.0, "walk_min": 6, "affiliate_url": "", "place_keys": ["スイーツ巡り", "カフェタイム", "スイーツカフェ", "おしゃれカフェ"]}, {"name": "サモアール 馬車道店", "category": "喫茶店", "desc": "ロイヤルミルクティー有名。", "rating": 4.3, "walk_min": 2, "affiliate_url": "", "place_keys": ["喫茶店", "レトロ喫茶", "馬車道カフェ", "カフェ休憩"]}, {"name": "横浜関帝廟", "category": "観光", "desc": "中華街の人気名所。", "rating": 4.3, "walk_min": 3, "affiliate_url": "", "place_keys": ["中華街", "食べ歩き", "中華街待ち合わせ", "夜散歩"]}, {"name": "元町プラザ", "category": "ショッピング", "desc": "元町の人気施設。", "rating": 4.0, "walk_min": 4, "affiliate_url": "", "place_keys": ["ショッピング", "元町散歩", "雑貨屋巡り", "コスメ・雑貨巡り"]}, {"name": "NEWoMan横浜", "category": "商業施設", "desc": "駅直結人気スポット。", "rating": 4.3, "walk_min": 1, "affiliate_url": "", "place_keys": ["ショッピング", "カフェ", "フードコート", "韓国ランチ"]}, {"name": "ジョイナス横浜", "category": "商業施設", "desc": "横浜駅定番施設。", "rating": 4.1, "walk_min": 1, "affiliate_url": "", "place_keys": ["ショッピング", "フードコートご飯", "フードコートランチ", "カフェ・軽食"]}, {"name": "関内ベースゲート", "category": "商業施設", "desc": "新感覚フード施設。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["関内ベースゲート", "関内ディナー", "フードコート", "カジュアルディナー"]}, {"name": "セブン-イレブン 横浜赤レンガ倉庫前店", "category": "コンビニ", "desc": "夜散歩前の立ち寄り。", "rating": 3.8, "walk_min": 2, "affiliate_url": "", "place_keys": ["コンビニ寄り道", "コンビニスイーツ", "コンビニ夜ご飯", "コンビニスイーツ＆ベンチ"]}, {"name": "ハードロックカフェ 横浜", "category": "レストラン", "desc": "音楽好きに人気。", "rating": 4.2, "walk_min": 4, "affiliate_url": "", "place_keys": ["レコードカフェ", "ディナー", "バー1軒目", "夜ご飯"]}, {"name": "シルスマリア 馬車道本店", "category": "スイーツ", "desc": "生チョコ発祥の店。", "rating": 4.4, "walk_min": 3, "affiliate_url": "", "place_keys": ["スイーツ巡り", "スイーツタイム", "馬車道カフェ", "カフェ・スイーツ"]}, {"name": "赤レンガクリスマスマーケット", "category": "イベント", "desc": "冬限定の人気イベント。", "rating": 4.6, "walk_min": 8, "affiliate_url": "", "place_keys": ["クリスマスマーケット", "赤レンガイルミネーション", "赤レンガ夜景", "夜景散歩"]}, {"name": "横浜イングリッシュガーデン", "category": "庭園", "desc": "季節の花が美しい。", "rating": 4.4, "walk_min": 12, "affiliate_url": "", "place_keys": ["花束演出", "洋館巡り", "夕方カフェ", "静かな夜景スポット"]}, {"name": "猫カフェ れおん", "category": "カフェ", "desc": "猫と触れ合える人気店。", "rating": 4.2, "walk_min": 4, "affiliate_url": "", "place_keys": ["カフェ", "室内カフェ", "カフェ休憩", "おしゃれカフェ"]}, {"name": "Cafe next-door", "category": "カフェ", "desc": "隠れ家風カフェ。", "rating": 4.1, "walk_min": 6, "affiliate_url": "", "place_keys": ["隠れ家バー", "夜カフェ", "深夜カフェ", "カフェタイム"]}, {"name": "CHILLULU COFFEE", "category": "カフェ", "desc": "中華街近くの人気店。", "rating": 4.4, "walk_min": 5, "affiliate_url": "", "place_keys": ["カフェ", "モーニングカフェ", "中華カフェ", "カフェ休憩"]}, {"name": "CAFE LEXCEL 横浜ランドマークプラザ店", "category": "カフェ", "desc": "景色が良い人気店。", "rating": 4.0, "walk_min": 3, "affiliate_url": "", "place_keys": ["海見えカフェ", "カフェタイム", "みなとみらい夜景", "夕方カフェ"]}, {"name": "横浜DRAセブン", "category": "バル", "desc": "カジュアルイタリアン。", "rating": 4.2, "walk_min": 2, "affiliate_url": "", "place_keys": ["カジュアルディナー", "バー1軒目", "夜ご飯", "関内ディナー"]}, {"name": "CRAFT KITCHEN Mid.Ru", "category": "ビアバー", "desc": "クラフトビール人気。", "rating": 4.3, "walk_min": 4, "affiliate_url": "", "place_keys": ["クラフトビール店", "2軒目ビアバー", "バー", "はしご酒"]}, {"name": "Bar Noble", "category": "バー", "desc": "大人向け隠れ家バー。", "rating": 4.6, "walk_min": 5, "affiliate_url": "", "place_keys": ["隠れ家バー", "締めバー", "2軒目バー", "バー"]}, {"name": "Bar Sea Guardian II", "category": "バー", "desc": "ホテル系クラシックバー。", "rating": 4.7, "walk_min": 3, "affiliate_url": "", "place_keys": ["ホテルバー", "バー", "夜景余韻タイム"]}, {"name": "バー シーガーディアンIII", "category": "バー", "desc": "山下公園近くの名店。", "rating": 4.6, "walk_min": 3, "affiliate_url": "", "place_keys": ["ホテルバー", "隠れ家バー", "締めバー", "夜景余韻タイム"]}, {"name": "Oslo Coffee 横浜ジョイナス店", "category": "カフェ", "desc": "北欧風カフェ。", "rating": 4.0, "walk_min": 1, "affiliate_url": "", "place_keys": ["カフェ", "カフェ休憩", "室内カフェ", "モーニングカフェ"]}, {"name": "WIRED CAFE 横浜相鉄ジョイナス店", "category": "カフェ", "desc": "使いやすい定番カフェ。", "rating": 3.9, "walk_min": 1, "affiliate_url": "", "place_keys": ["カフェ", "室内カフェランチ", "カフェランチ", "夜カフェ"]}, {"name": "kawara CAFE&DINING 横浜店", "category": "カフェ", "desc": "夜景席が人気。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜景カフェ", "夜カフェ・スイーツ", "おしゃれディナー", "夜景タイム"]}, {"name": "Cafe Tosca", "category": "レストラン", "desc": "ホテルビュッフェ人気。", "rating": 4.5, "walk_min": 4, "affiliate_url": "", "place_keys": ["ホテルラウンジ", "高級ディナー", "記念日ディナー", "夜景ディナー"]}, {"name": "下前商店", "category": "ラーメン", "desc": "深夜営業の人気店。", "rating": 4.2, "walk_min": 7, "affiliate_url": "", "place_keys": ["深夜ラーメン", "締めラーメン", "ラーメン", "夜ご飯"]}, {"name": "麺場浜虎", "category": "ラーメン", "desc": "横浜駅人気ラーメン。", "rating": 4.3, "walk_min": 5, "affiliate_url": "", "place_keys": ["ラーメン", "夜ご飯", "締めラーメン", "カジュアルディナー"]}, {"name": "横浜家系総本山 吉村家", "category": "ラーメン", "desc": "家系総本山の名店。", "rating": 4.5, "walk_min": 6, "affiliate_url": "", "place_keys": ["ラーメン", "夜ご飯", "深夜ラーメン", "締めラーメン"]}, {"name": "GUNDAM FACTORY YOKOHAMA跡地エリア", "category": "観光", "desc": "ガンダム展示で話題。", "rating": 4.3, "walk_min": 12, "affiliate_url": "", "place_keys": ["アート展示", "海沿い散歩", "赤レンガ方面へ散歩", "夜景撮影タイム"]}, {"name": "横浜港大さん橋国際客船ターミナル", "category": "観光", "desc": "夜景撮影の定番。", "rating": 4.7, "walk_min": 10, "affiliate_url": "", "place_keys": ["大さん橋ベンチ", "大さん橋夜景散歩", "夜景撮影タイム", "海沿い夜景散歩"]}, {"name": "THE ROOF TOP BAY YOKOHAMA", "category": "ラウンジ", "desc": "ルーフトップ夜景人気。", "rating": 4.4, "walk_min": 6, "affiliate_url": "", "place_keys": ["ラウンジ", "夜景スポット", "夜景ディナー", "夜景余韻タイム"]}, {"name": "横浜モアーズ", "category": "商業施設", "desc": "横浜駅前定番施設。", "rating": 4.0, "walk_min": 1, "affiliate_url": "", "place_keys": ["ショッピング", "フードコートご飯", "室内カフェ", "夜ご飯"]}, {"name": "ドン・キホーテ 伊勢佐木町店", "category": "ショッピング", "desc": "深夜デート定番。", "rating": 3.9, "walk_min": 4, "affiliate_url": "", "place_keys": ["伊勢佐木町散歩", "ショッピング", "コンビニ寄り道", "夜散歩"]}, {"name": "イセザキ・モール", "category": "街歩き", "desc": "ローカル感ある商店街。", "rating": 4.0, "walk_min": 3, "affiliate_url": "", "place_keys": ["伊勢佐木町散歩", "関内夜散歩", "ショッピング", "古着屋巡り"]}, {"name": "BOOK AND BED TOKYO 横浜関内", "category": "カフェ", "desc": "泊まれる本屋カフェ。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["レコードカフェ", "深夜カフェ", "室内カフェ", "夜カフェ"]}, {"name": "Cafe+82 横浜店", "category": "韓国カフェ", "desc": "韓国風写真が人気。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["韓国っぽカフェ", "韓国カフェ", "プリクラ・写真撮影", "スイーツカフェ"]}, {"name": "BAYSTORE HOME", "category": "ショップ", "desc": "ベイスターズ公式店。", "rating": 4.2, "walk_min": 3, "affiliate_url": "", "place_keys": ["ショッピング", "関内夜散歩", "雑貨屋巡り", "プリクラ・グッズ巡り"]}, {"name": "THE ALLEY 横浜ハンマーヘッド店", "category": "カフェ", "desc": "台湾ティー専門店。", "rating": 4.0, "walk_min": 8, "affiliate_url": "", "place_keys": ["台湾スイーツ", "スイーツタイム", "海沿いカフェ", "カフェ休憩"]}, {"name": "DUMBO PIZZA FACTORY 横浜", "category": "イタリアン", "desc": "カジュアルピザ人気。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["カジュアルディナー", "バー1軒目", "夜ご飯", "おしゃれディナー"]}, {"name": "Roof Top Cafe YOKOHAMA", "category": "カフェ", "desc": "開放感ある屋上カフェ。", "rating": 4.2, "walk_min": 6, "affiliate_url": "", "place_keys": ["テラスカフェ", "夜景カフェ", "夕方夜景タイム", "海見えカフェ"]}, {"name": "喫茶マドラグ 横浜店", "category": "喫茶店", "desc": "レトロ感漂う人気店。", "rating": 4.1, "walk_min": 5, "affiliate_url": "", "place_keys": ["レトロ喫茶", "喫茶店", "カフェタイム", "レトロ喫茶巡り"]}, {"name": "横浜赤レンガ倉庫2号館", "category": "商業施設", "desc": "雑貨店巡りが楽しい。", "rating": 4.4, "walk_min": 8, "affiliate_url": "", "place_keys": ["赤レンガ倉庫", "雑貨屋巡り", "ショッピング", "赤レンガ撮影タイム"]}, {"name": "THE ALLEY 横浜駅店", "category": "台湾スイーツ", "desc": "黒糖タピオカ人気。", "rating": 4.0, "walk_min": 3, "affiliate_url": "", "place_keys": ["台湾スイーツ", "スイーツタイム", "カフェ・スイーツ", "韓国っぽカフェ"]}, {"name": "S.Weil by HOTEL NEW GRAND", "category": "カフェ", "desc": "ホテル系上質カフェ。", "rating": 4.5, "walk_min": 3, "affiliate_url": "", "place_keys": ["ホテルラウンジ", "カフェ・スイーツ", "山下公園", "高級ディナー"]}, {"name": "Pizzeria & Bar LOGIC 横浜", "category": "イタリアン", "desc": "夜景席が人気。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜景ディナー", "バー1軒目", "おしゃれディナー", "軽めディナー"]}, {"name": "串焼きとワイン BACHI", "category": "居酒屋", "desc": "ワインと串焼き人気。", "rating": 4.3, "walk_min": 5, "affiliate_url": "", "place_keys": ["関内居酒屋", "居酒屋", "はしご酒", "軽めディナー"]}, {"name": "横浜みなと博物館", "category": "博物館", "desc": "港町横浜を学べる。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["アート展示", "みなとみらい散歩", "館内カフェ", "アート展示・ギャラリー"]}, {"name": "横浜人形の家", "category": "ミュージアム", "desc": "世界の人形を展示。", "rating": 4.0, "walk_min": 5, "affiliate_url": "", "place_keys": ["アート展示", "山下公園散歩", "館内カフェ", "洋館巡り"]}, {"name": "MARFA CAFE", "category": "カフェ", "desc": "ソファ席が人気。", "rating": 4.1, "walk_min": 4, "affiliate_url": "", "place_keys": ["夜カフェ", "カフェタイム", "おしゃれカフェ", "室内カフェ"]}, {"name": "J.S. PANCAKE CAFE マークイズみなとみらい店", "category": "カフェ", "desc": "パンケーキ専門店。", "rating": 4.0, "walk_min": 3, "affiliate_url": "", "place_keys": ["スイーツカフェ", "ブランチカフェ", "カフェランチ", "カフェ・スイーツ"]}, {"name": "横浜駅西口五番街", "category": "居酒屋街", "desc": "はしご酒スポット。", "rating": 4.1, "walk_min": 2, "affiliate_url": "", "place_keys": ["はしご酒", "ローカル居酒屋", "居酒屋", "2軒目バー"]}, {"name": "オリエンタルビーチ みなとみらい", "category": "レストラン", "desc": "高層階夜景レストラン。", "rating": 4.5, "walk_min": 5, "affiliate_url": "", "place_keys": ["夜景ディナー", "高級ディナー", "記念日ディナー", "みなとみらい夜景"]}, {"name": "Cafe Acqua", "category": "カフェ", "desc": "海辺の隠れ家カフェ。", "rating": 4.1, "walk_min": 7, "affiliate_url": "", "place_keys": ["海沿いカフェ", "夕方カフェ", "カフェ休憩", "静かな夜景スポット"]}, {"name": "横浜中華街 横浜博覧館", "category": "観光", "desc": "お土産探しに人気。", "rating": 4.0, "walk_min": 4, "affiliate_url": "", "place_keys": ["中華街", "ショッピング", "食べ歩き", "中華街待ち合わせ"]}, {"name": "アソビル", "category": "複合施設", "desc": "体験型スポット多数。", "rating": 4.1, "walk_min": 2, "affiliate_url": "", "place_keys": ["ゲームセンター", "プリクラ", "フードコート", "ショッピング"]}, {"name": "横浜天然温泉 SPA EAS", "category": "温浴施設", "desc": "大人向け温泉施設。", "rating": 4.3, "walk_min": 5, "affiliate_url": "", "place_keys": ["温浴施設", "スパ・サウナ", "夜景余韻タイム", "室内ディナー"]}, {"name": "Cafe Fan Base", "category": "コラボカフェ", "desc": "期間限定コラボ人気。", "rating": 4.0, "walk_min": 7, "affiliate_url": "", "place_keys": ["コラボカフェ", "館内カフェ", "プリクラ・グッズ巡り", "カフェ"]}, {"name": "ボードゲームカフェ リゴレ", "category": "ボードゲームカフェ", "desc": "ゲーム好きに人気。", "rating": 4.2, "walk_min": 6, "affiliate_url": "", "place_keys": ["ボードゲームカフェ", "室内カフェ", "カフェタイム", "夜カフェ"]}, {"name": "横浜港未来クルーズ", "category": "クルージング", "desc": "海上夜景が楽しめる。", "rating": 4.5, "walk_min": 7, "affiliate_url": "", "place_keys": ["クルージング", "夜景サプライズ", "海沿い夜景散歩", "夜景スポット"]}];
+
+// place_keyからスポットを取得（rating上位5件からランダム3件）
+function getSpotsForPlace(placeKey) {
+  const matched = SPOTS.filter(s => s.place_keys.includes(placeKey));
+  if (matched.length === 0) return [];
+  const sorted = matched.sort((a, b) => b.rating - a.rating);
+  const top5 = sorted.slice(0, 5);
+  // ランダムで3件選択
+  const shuffled = top5.sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 3);
+}
+
+// カテゴリ絵文字
+function getCategoryEmoji(category) {
+  const map = {
+    'カフェ': '☕', '喫茶店': '☕', '韓国カフェ': '☕', 'ベーカリー': '🥐',
+    '中華': '🥟', '食べ歩き': '🥟', '台湾スイーツ': '🧋',
+    'レストラン': '🍽️', 'イタリアン': '🍝', '焼肉': '🥩', 'ラーメン': '🍜',
+    '居酒屋': '🍺', 'バー': '🍸', 'ビアバー': '🍻', 'ホテルバー': '🥂',
+    'ホテル': '🏨', '温浴施設': '♨️', 'スイーツ': '🍰',
+    '展望台': '🗼', '夜景スポット': '🌃', 'クルージング': '⛴️',
+    '公園': '🌿', '散歩': '🚶', '観光': '📸', '洋館': '🏛️',
+    'ショッピング': '🛍️', '商業施設': '🏬', 'ゲームセンター': '🎮',
+    'ミュージアム': '🎨', '美術館': '🎨', 'ドライブ': '🚗',
+    'アクティビティ': '🎡', 'シーシャバー': '💨', 'ジャズバー': '🎷',
+    'ボードゲームカフェ': '🎲', 'コンビニ': '🏪', 'ドッグカフェ': '🐕'
+  };
+  return map[category] || '📍';
+}
+
+// スポットカードHTMLを生成
+function renderSpotCards(placeKey) {
+  const spots = getSpotsForPlace(placeKey);
+  if (spots.length === 0) return '';
+  
+  const cards = spots.map(s => {
+    const emoji = getCategoryEmoji(s.category);
+    const url = s.affiliate_url || '#';
+    const target = s.affiliate_url ? 'target="_blank"' : '';
+    return `<a class="spot-card" href="${url}" ${target}>
+      <div class="spot-card-img">${emoji}</div>
+      <div class="spot-card-body">
+        <p class="spot-card-name">${s.name}</p>
+        <p class="spot-card-desc">${s.desc}</p>
+        <div class="spot-card-meta">
+          <span class="spot-card-rating">★ ${s.rating}</span>
+          <span class="spot-card-walk">🚶 <a class="spot-card-map" href="https://www.google.com/maps/search/${encodeURIComponent(s.name)}+横浜" target="_blank">🗺 地図で見る</a></span>
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+
+  const dots = spots.map((_, i) => `<div class="spot-dot${i===0?' active':''}"></div>`).join('');
+
+  return `<div class="spot-card-wrap">
+    <div class="spot-card-header">
+      <span class="spot-card-label">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        おすすめスポット
+      </span>
+      <span class="spot-slide-hint">左右にスライド ›</span>
+    </div>
+    <div class="spot-slider">${cards}</div>
+    <div class="spot-dots">${dots}</div>
+  </div>`;
+}
+
+// ── スポットデータ ──
+
+
+function getSpotsForPlace(placeKey) {
+  var matched = SPOTS.filter(function(s) { return s.place_keys.indexOf(placeKey) !== -1; });
+  if (matched.length === 0) return [];
+  var sorted = matched.slice().sort(function(a,b){ return b.rating - a.rating; });
+  var top5 = sorted.slice(0,5);
+  return top5.slice().sort(function(){ return Math.random()-0.5; }).slice(0,3);
+}
+
+function getCategoryEmoji(cat) {
+  var m = {
+    'カフェ':'☕','喫茶店':'☕','韓国カフェ':'☕','ベーカリー':'🥐',
+    '中華':'🥟','食べ歩き':'🥟','台湾スイーツ':'🧋',
+    'レストラン':'🍽️','イタリアン':'🍝','焼肉':'🥩','ラーメン':'🍜',
+    '居酒屋':'🍺','バー':'🍸','ビアバー':'🍻','ホテルバー':'🥂',
+    'ホテル':'🏨','温浴施設':'♨️','スイーツ':'🍰',
+    '展望台':'🗼','夜景スポット':'🌃','クルージング':'⛴️',
+    '公園':'🌿','散歩':'🚶','観光':'📸','洋館':'🏛️',
+    'ショッピング':'🛍️','商業施設':'🏬','ゲームセンター':'🎮',
+    'ミュージアム':'🎨','美術館':'🎨','ドライブ':'🚗',
+    'アクティビティ':'🎡','シーシャバー':'💨','ジャズバー':'🎷',
+    'ボードゲームカフェ':'🎲','コンビニ':'🏪','ドッグカフェ':'🐕'
+  };
+  return m[cat] || '📍';
+}
+
+function renderSpotCards(placeKey) {
+  var spots = getSpotsForPlace(placeKey);
+  if (!spots.length) return '';
+  var cards = '';
+  for (var i=0; i<spots.length; i++) {
+    var s = spots[i];
+    var emoji = getCategoryEmoji(s.category);
+    var url = s.affiliate_url ? s.affiliate_url : '#';
+    var tgt = s.affiliate_url ? ' target="_blank"' : '';
+    cards += '<a class="spot-card" href="'+url+'"'+tgt+'>'
+      +'<div class="spot-card-img">'+emoji+'</div>'
+      +'<div class="spot-card-body">'
+      +'<p class="spot-card-name">'+s.name+'</p>'
+      +'<p class="spot-card-desc">'+s.desc+'</p>'
+      +'<div class="spot-card-meta">'
+      +'<span class="spot-card-rating">★ '+s.rating+'</span>'
+      +'<a class="spot-card-map" href="https://www.google.com/maps/search/'+encodeURIComponent(s.name)+'+横浜" target="_blank">🗺 地図で見る</a>'
+      +'</div></div></a>';
+  }
+  var dots = '';
+  for (var j=0; j<spots.length; j++) {
+    dots += '<div class="spot-dot'+(j===0?' active':'')+'" ></div>';
+  }
+  return '<div class="spot-card-wrap">'
+    +'<div class="spot-card-header">'
+    +'<span class="spot-card-label">'
+    +'<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'
+    +'おすすめスポット</span>'
+    +'<span class="spot-slide-hint">左右にスライド ›</span>'
+    +'</div>'
+    +'<div class="spot-slider">'+cards+'</div>'
+    +'<div class="spot-dots">'+dots+'</div>'
+    +'</div>';
+}
+
 
 // ── 回答状態 ──
 const answers = { purpose: null, mood: null, priority: [], budget: null, relation: null, timeband: null };
@@ -3972,6 +4496,75 @@ function getMatchedPlans() {
 }
 
 // ── 結果描画 ──
+// ── スポットデータ ──
+
+
+// ── スポットカード描画 ──
+function getCategoryEmoji(category) {
+  const map = {
+    'カフェ':'☕','中華':'🥟','食べ歩き':'🥢','台湾スイーツ':'🧋',
+    'ホテル':'🏨','バー':'🍸','ビアバー':'🍺','居酒屋':'🍶',
+    'ラーメン':'🍜','焼肉':'🥩','イタリアン':'🍝','スイーツ':'🍰',
+    '夜景':'🌃','公園':'🌿','観光':'📸','展望台':'🗼',
+    'ショッピング':'🛍','映画館':'🎬','温浴施設':'♨️','クルージング':'⛴',
+    'ゲームセンター':'🎮','喫茶店':'🫖','ホテルバー':'🥂',
+    'ジャズバー':'🎷','シーシャバー':'💨','ボードゲームカフェ':'🎲',
+    '洋館':'🏛','ミュージアム':'🎨','美術館':'🖼','プラネタリウム':'🌙',
+    '遊園地':'🎡','コンビニ':'🏪','商業施設':'🏬','ベーカリー':'🥐',
+    'レストラン':'🍽','洋食':'🍛','焼肉':'🥩','街歩き':'🚶'
+  };
+  return map[category] || '📍';
+}
+
+function getSpotsByPlace(placeName) {
+  const matched = SPOTS.filter(s => s.place_keys.includes(placeName));
+  const top5 = matched.sort((a, b) => b.rating - a.rating).slice(0, 5);
+  return top5.sort(() => Math.random() - 0.5).slice(0, 3);
+}
+
+function renderSpotCards(placeName) {
+  const spots = getSpotsByPlace(placeName);
+  if (spots.length === 0) return '';
+  const cards = spots.map(s => {
+    const emoji = getCategoryEmoji(s.category);
+    const url = s.affiliate_url || '#';
+    return `
+      <a class="spot-card" href="${url}" target="_blank" rel="noopener">
+        <div class="spot-card-img">${emoji}</div>
+        <div class="spot-card-body">
+          <div class="spot-card-name">${s.name}</div>
+          <div class="spot-card-desc">${s.desc}</div>
+          <div class="spot-card-tags"><span class="spot-card-tag">${s.category}</span></div>
+          <div class="spot-card-meta">
+            <div class="spot-card-rating">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ${s.rating}
+            </div>
+            <div class="spot-card-walk">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7l-2 5h4l-2 5"/><path d="M9 12l-2 6"/><path d="M15 12l2 6"/></svg>
+              <a class="spot-card-map" href="https://www.google.com/maps/search/${encodeURIComponent(s.name)}+横浜" target="_blank">🗺 地図で見る</a>
+            </div>
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+  const dots = spots.map((_, i) =>
+    `<div class="spot-card-dot${i===0?' active':''}"></div>`
+  ).join('');
+  return `
+    <div class="spot-card-section">
+      <div class="spot-card-header">
+        <div class="spot-card-label">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          おすすめスポット
+        </div>
+        <div class="spot-card-slide-hint">左右にスライド &lt;&gt;</div>
+      </div>
+      <div class="spot-cards-scroll">${cards}</div>
+      <div class="spot-card-dots">${dots}</div>
+    </div>`;
+}
+
 function renderResult(plans) {
   const top = plans[0];
   const pct = Math.round(top.matchScore);
@@ -3996,6 +4589,7 @@ function renderResult(plans) {
       <div class="timeline-content">
         <h4>${s.place}</h4>
         <p>${s.desc}</p>
+        ${renderSpotCards(s.place)}
       </div>
     </div>`).join('');
 
